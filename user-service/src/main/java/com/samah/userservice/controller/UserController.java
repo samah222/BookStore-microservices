@@ -1,8 +1,9 @@
 package com.samah.userservice.controller;
 
-import com.samah.userservice.model.User;
+import com.samah.userservice.entity.User;
 import com.samah.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,14 @@ import java.util.List;
 @RestController
 @RequestMapping( "/v1/users")
 public class UserController {
+    @Value("${spring.application.name}")
+    private String applicationName;
+    @Value("${spring.application.version}")
+    private String applicationVersion;
+    @GetMapping("/info")
+    public String getInfo(){
+        return "This application is "+applicationName+" and this version: "+applicationVersion;
+    }
     @Autowired
     private UserService userService;
 

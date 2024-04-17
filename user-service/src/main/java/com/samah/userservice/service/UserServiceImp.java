@@ -1,7 +1,7 @@
 package com.samah.userservice.service;
 
 import com.samah.userservice.exception.UserNotFoundException;
-import com.samah.userservice.model.User;
+import com.samah.userservice.entity.User;
 import io.micrometer.observation.ObservationRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: users-service
+    version: v1
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/users_service
+    password: E15@root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'false'
+
+server:
+  port: '8082'
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

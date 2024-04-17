@@ -1,4 +1,4 @@
-package com.samah.userservice.model;
+package com.samah.userservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
@@ -14,6 +14,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDate;
 import java.util.Set;
 
+//@Transactional
 @Entity(name = "USER_DETAILS")
 @Table(name = "USERS", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"name"}),

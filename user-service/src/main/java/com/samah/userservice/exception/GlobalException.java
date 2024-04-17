@@ -13,9 +13,15 @@ public class GlobalException {
             return problemDetail;
         }
         @ExceptionHandler(RuntimeException.class)
-        public ProblemDetail handleRuntimeException(UserNotFoundException ex) {
-            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
+        public ProblemDetail handleRuntimeException(RuntimeException ex) {
+            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
             return problemDetail;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ProblemDetail handleException(Exception ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
+        return problemDetail;
     }
 //        public ResponseEntity<String> handleUserNotFoundException(UserNotFoundException ex) {
 //            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);

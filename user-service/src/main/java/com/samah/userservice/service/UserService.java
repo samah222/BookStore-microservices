@@ -1,6 +1,6 @@
 package com.samah.userservice.service;
 
-import com.samah.userservice.model.User;
+import com.samah.userservice.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

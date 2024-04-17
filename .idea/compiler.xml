@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Book-service" />
+        <module name="config-server" />
         <module name="user-service" />
         <module name="order-service" />
         <module name="Eureka-server-bookstore" />
@@ -17,6 +18,7 @@
     <bytecodeTargetLevel>
       <module name="API-gateway" target="19" />
       <module name="Book-service" target="19" />
+      <module name="config-server" target="19" />
       <module name="Eureka-server-bookstore" target="19" />
       <module name="order-service" target="19" />
       <module name="user-service" target="19" />
@@ -27,6 +29,7 @@
       <module name="API-gateway" options="-parameters" />
       <module name="Book-service" options="-parameters" />
       <module name="Eureka-server-bookstore" options="-parameters" />
+      <module name="config-server" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>

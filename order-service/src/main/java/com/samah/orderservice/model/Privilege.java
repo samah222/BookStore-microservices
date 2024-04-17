@@ -1,4 +1,4 @@
-package com.samah.userservice.model;
+package com.samah.orderservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

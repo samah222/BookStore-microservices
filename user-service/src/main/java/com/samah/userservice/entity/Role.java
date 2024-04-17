@@ -1,4 +1,4 @@
-package com.samah.userservice.model;
+package com.samah.userservice.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,6 +11,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//@Transactional
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

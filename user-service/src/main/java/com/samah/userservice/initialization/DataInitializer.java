@@ -1,7 +1,7 @@
 package com.samah.userservice.initialization;
 
-import com.samah.userservice.model.Privilege;
-import com.samah.userservice.model.Role;
+import com.samah.userservice.entity.Privilege;
+import com.samah.userservice.entity.Role;
 import com.samah.userservice.repository.PrivilegeRepository;
 import com.samah.userservice.repository.RoleRepository;
 import jakarta.annotation.PostConstruct;

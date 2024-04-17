@@ -1,31 +1,5 @@
-server:
-  port: '8080'
-
 spring:
   application:
     name: API-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: orders
-          uri: http://localhost:8083
-          predicates:
-            - Path=/v1/orders/**
-        - id: books
-          uri: http://localhost:8081
-          predicates:
-            - Path=/v1/books/**
-        - id: users
-          uri: http://users:8082
-          predicates:
-            - Path=/v1/users/**
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+  config:
+    import: optional:configserver:http://localhost:8888

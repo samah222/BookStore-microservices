@@ -1,4 +1,4 @@
-package com.samah.Bookservice.model;
+package com.samah.Bookservice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+//@Transactional
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
     private String description;
     private String title;
     private List<String> authors;

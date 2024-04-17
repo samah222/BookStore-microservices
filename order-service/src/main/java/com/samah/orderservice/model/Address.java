@@ -1,4 +1,4 @@
-package com.samah.userservice.model;
+package com.samah.orderservice.model;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

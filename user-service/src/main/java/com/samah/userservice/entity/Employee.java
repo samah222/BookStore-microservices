@@ -1,4 +1,4 @@
-package com.samah.userservice.model;
+package com.samah.userservice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Past;
@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @Entity
+//@Transactional
 public class Employee extends User{
     private BigDecimal salary;
     private String employeeDetails;

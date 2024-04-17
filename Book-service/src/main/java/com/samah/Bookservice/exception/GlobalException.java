@@ -13,7 +13,7 @@ public class GlobalException {
             return problemDetail;
         }
         @ExceptionHandler(RuntimeException.class)
-        public ProblemDetail handleRuntimeException(BookNotFoundException ex) {
+        public ProblemDetail handleRuntimeException(RuntimeException ex) {
             ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
             return problemDetail;
     }

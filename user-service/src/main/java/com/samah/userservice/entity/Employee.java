@@ -13,6 +13,8 @@ import java.time.LocalDate;
 @Entity
 //@Transactional
 public class Employee extends User{
+    private String jobTitle;
+
     private BigDecimal salary;
     private String employeeDetails;
     private String department;

@@ -1,42 +1,46 @@
 package com.samah.userservice.service;
 
+import com.samah.userservice.dto.UserDto;
 import com.samah.userservice.exception.UserNotFoundException;
 import com.samah.userservice.entity.User;
-import io.micrometer.observation.ObservationRegistry;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.samah.userservice.mapper.UserMapper;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import com.samah.userservice.repository.UserRepository;
-
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServiceImp implements UserService {
-    @Autowired
+    public UserServiceImp(UserRepository userRepository, UserMapper userMapper) {
+        this.userRepository = userRepository;
+        this.userMapper = userMapper;
+    }
     private UserRepository userRepository;
-
-    @Autowired
-    private ObservationRegistry observationRegistry;
+    UserMapper userMapper;
 
     @Override
-    public User getUserByName(String name) {
-        return userRepository.findByName(name).orElseThrow(() -> new UserNotFoundException("User not found"));
+    public UserDto getUserByName(String name) {
+        Optional<User> user = userRepository.findByName(name);
+        if(user.isPresent())
+            return userMapper.UserToUserDto(user.get());
+        else throw new UserNotFoundException("User not found");
     }
 
     @Override
     @Cacheable(value = "userById", key = "#id")
-    public User getUserById(Long id) {
+    public UserDto getUserById(Long id) {
         Optional<User> user = userRepository.findById(id);
-
-        return user.orElseThrow(() -> new UserNotFoundException("User not found"));
+        if(user.isPresent())
+                return userMapper.UserToUserDto(user.get());
+         else throw new UserNotFoundException("User not found");
         //return user.orElse(null);
     }
 
     @Override
-    public void addUser(User user) {
-        userRepository.save(user);
+    public UserDto addUser(User user) {
+        return userMapper.UserToUserDto(userRepository.save(user));
     }
 
     @Override
@@ -45,17 +49,20 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDto> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream().map(u ->userMapper.UserToUserDto(u))
+                .toList();
     }
 
     @Override
-    public User updateUser(Long id, User user) {
+    public UserDto updateUser(Long id, UserDto dto) {
         //User dbUser = userRepository.findById(id).get(); //
+        User user = userMapper.UserDtoToUser(dto);
         user.setId(id);
         if(!userRepository.existsById(user.getId()))
             throw new IllegalArgumentException("User does not exist");
-        return userRepository.save(user);
+        return userMapper.UserToUserDto(user);
     }
 }
 

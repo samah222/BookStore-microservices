@@ -8,7 +8,7 @@ import com.samah.userservice.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,8 +28,8 @@ class UserMapperTest {
                 .email("samahmahdi22@gmail.com")
                 .phone("0511111111")
                 .address(new Address("street1","city1","state1","1111","Country1"))
-                .createdAt(LocalDate.now())
-                .updatedAt(LocalDate.now())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
                 .role(new Role(1,"ADMIN",Set.of(new Privilege(1,"READ_WRITE"))))
                 .build();
         userDto = mapper.UserToUserDto(user);

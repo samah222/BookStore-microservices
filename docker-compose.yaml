@@ -1,46 +1,130 @@
+# check network, change .env file to 3 files and update db image
+version: "3.8"
 services:
-  postgresql:
-    container_name: postgresql
-    image: postgres
-    environment:
-      POSTGRES_USER: alibou
-      POSTGRES_PASSWORD: alibou
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
+  config-server:
+    image: bookstore/configserver:latest
     ports:
-      - "5432:5432"
+      - "8888:8888"
     networks:
-      - postgres
-    restart: unless-stopped
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    volumes:
-      - pgadmin:/var/lib/pgadmin
-    ports:
-      - "5050:80"
-    networks:
-      - postgres
-    restart: unless-stopped
-  zipkin:
-    container_name: zipkin
-    image: openzipkin/zipkin
-    ports:
-      - "9411:9411"
-    networks:
-      - zipkin
+      - bookstore-network
 
-networks:
-  postgres:
-    driver: bridge
-  zipkin:
-    driver: bridge
+  eureka-server:
+    image: bookstore/eureka-server:latest
+    ports:
+      - "8090:8080"
+    depends_on:
+      - config-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILE_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8888/
+    networks:
+      - bookstore-network
 
-volumes:
-  postgres:
-  pgadmin:
+  books-service-db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3307:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+    volumes:
+      # Where our data will be persisted
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+    networks:
+      # Add this container to a network to be able to communicate with its service
+      - bookstore-network
+  books-service:
+    image: bookstore/books-service:latest
+    ports:
+      - "8081:8081"
+    depends_on:
+      - config-server
+      - eureka-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILE_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8888/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://configserver:8090/
+    networks:
+      - bookstore-network
+
+  users-service:
+    image: bookstore/users-service:latest
+    ports:
+      - "8082:8082"
+    depends_on:
+      - config-server
+      - eureka-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILE_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8888/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://configserver:8090/
+    networks:
+      - bookstore-network
+  users-service-db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - '3308:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+    networks:
+      - bookstore-network
+
+  orders-service:
+    image: bookstore/orders-service:latest
+    ports:
+      - "8083:8083"
+    depends_on:
+      - config-server
+      - eureka-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILE_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8888/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://configserver:8090/
+    networks:
+      - bookstore-network
+  orders-service-db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - '3309:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./mysql-dump:/docker-entrypoint-initdb.d
+    networks:
+      - bookstore-network

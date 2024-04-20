@@ -1,7 +1,6 @@
-
 spring:
   application:
-    name: users-service
+    name: users
     version: v1
 
   datasource:

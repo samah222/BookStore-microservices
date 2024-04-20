@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 //@Transactional
 @Data
@@ -31,15 +31,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Size(min = 2, max=50, message = "name should be between 2 and 50 characters")
-    @Column(name = "name", nullable = false )
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
 
     @Size(min = 8, max=50, message = "Password should be between 8 and 50 characters")
     @JsonIgnore
+    @Column(length = 50)
     private String password;
 
     @Email
-    //@Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
     //@Pattern(regexp ="^\\+[0-9]+$")
@@ -49,12 +50,12 @@ public class User {
     private Address address;
 
     @CreationTimestamp
-    @Column(name="created_at")
-    private LocalDate createdAt;
+    @Column(name="created_at" , updatable = false)
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name="updated_at", nullable = false, updatable = false)
-    private LocalDate updatedAt;
+    @Column(name="updated_at", nullable = false, insertable = false)
+    private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.EAGER)
 //    @JoinTable(

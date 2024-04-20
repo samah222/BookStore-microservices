@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -45,7 +46,7 @@ public class UserServiceImpTest {
         //given
         User user = new User(1L, "Samah", "123456789", "samahmahdi22@gmail.com",
                 "0511111111", new Address("street1","city1","state1","1111",
-                "Country1"),LocalDate.now(), LocalDate.now(), new Role(1,"ADMIN",
+                "Country1"), LocalDateTime.now(), LocalDateTime.now(), new Role(1,"ADMIN",
                 Set.of(new Privilege(1,"READ_WRITE"))));
 
         UserDto userDto = new UserDto(1L, "Samah", "samahmahdi22@gmail.com","0511111111",
@@ -72,7 +73,7 @@ public class UserServiceImpTest {
         List<User> userList = new ArrayList<>();
         userList.add(new User(1L, "Samah", "123456789", "samahmahdi22@gmail.com",
                 "0511111111", new Address("street1","city1","state1","1111",
-                "Country1"),LocalDate.now(), LocalDate.now(), new Role(1,"ADMIN",
+                "Country1"),LocalDateTime.now(), LocalDateTime.now(), new Role(1,"ADMIN",
                 Set.of(new Privilege(1,"READ_WRITE")))));
 
         when(userRepository.findAll()).thenReturn(userList);

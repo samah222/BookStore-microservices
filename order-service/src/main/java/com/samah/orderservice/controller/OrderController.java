@@ -1,6 +1,7 @@
 package com.samah.orderservice.controller;
 
 import com.samah.orderservice.client.BooksClient;
+import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.model.Book;
 import com.samah.orderservice.entity.Order;
 import com.samah.orderservice.service.OrderService;
@@ -28,23 +29,23 @@ public class OrderController {
     @Autowired
     OrderService orderService;
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getOrder(@PathVariable int id){
+    public ResponseEntity<OrderDto> getOrder(@PathVariable int id){
         return new ResponseEntity<>(orderService.getOrder(id), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Order>> getAllOrders(){
-        return new ResponseEntity<List<Order>>(orderService.getAllOrders(), HttpStatus.OK);
+    public ResponseEntity<List<OrderDto>> getAllOrders(){
+        return new ResponseEntity<List<OrderDto>>(orderService.getAllOrders(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Order> addOrder(@RequestBody Order order){
+    public ResponseEntity<OrderDto> addOrder(@RequestBody Order order){
         return new ResponseEntity<>(orderService.addOrder(order), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Order> updateOrder(@RequestBody Order order, @PathVariable int id){
-        return new ResponseEntity<>(orderService.updateOrder(order,id), HttpStatus.OK);
+    public ResponseEntity<OrderDto> updateOrder(@RequestBody OrderDto orderDto, @PathVariable int id){
+        return new ResponseEntity<>(orderService.updateOrder(orderDto,id), HttpStatus.OK);
     }
 
     @GetMapping("books/{bookId}")

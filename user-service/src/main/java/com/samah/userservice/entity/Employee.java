@@ -1,5 +1,6 @@
 package com.samah.userservice.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Past;
 import lombok.Data;
@@ -13,8 +14,8 @@ import java.time.LocalDate;
 @Entity
 //@Transactional
 public class Employee extends User{
+    @Column(nullable = false, length = 50)
     private String jobTitle;
-
     private BigDecimal salary;
     private String employeeDetails;
     private String department;

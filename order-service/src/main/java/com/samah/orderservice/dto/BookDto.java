@@ -1,22 +1,19 @@
-package com.samah.Bookservice.entity;
+package com.samah.orderservice.dto;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Setter @Getter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Entity
+@AllArgsConstructor
 @Builder
-//@Transactional
-public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BookDto {
     private Integer id;
     private String description;
-    @Column(nullable = false)
     private String title;
     private List<String> authors;
     private String isbn;
@@ -27,4 +24,8 @@ public class Book {
     private String publisher;
     private String language;
     private int pages;
+
 }
+
+
+ 

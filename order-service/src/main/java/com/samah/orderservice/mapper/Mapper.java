@@ -2,6 +2,7 @@ package com.samah.orderservice.mapper;
 
 import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.entity.Order;
+import com.samah.orderservice.entity.OrderStatuses;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,21 +12,36 @@ public class Mapper {
             throw new NullPointerException("The Order DTO should not be null");
         }
         Order order = new Order();
-        order.setId(dto.id());
-        order.setStatus(dto.status());
-        order.setBookId(dto.bookId());
-        order.setCreatedAt(dto.createdAt());
-        order.setUpdatedAt(dto.updatedAt());
-        order.setTotalAmount(dto.totalAmount());
-        order.setCustomerId(dto.customerId());
+        order.setId(dto.getId());
+        order.setBookId(dto.getBookId());
+        order.setCreatedAt(dto.getCreatedAt());
+        order.setUpdatedAt(dto.getUpdatedAt());
+        order.setTotalAmount(dto.getTotalAmount());
+        order.setCustomerId(dto.getCustomerId());
+        order.setStatus(dto.getStatus());
+        order.setShippingAt(dto.getShippingAt());
+        order.setPaymentMethod(dto.getPaymentMethod());
+        order.setShipper(dto.getShipper());
+        order.setQuantity(dto.getQuantity());
 
         return order;
     }
 
     public OrderDto OrderToOrderDto(Order order){
-        OrderDto OrderDto = new OrderDto(order.getId(), order.getBookId(), order.getCustomerId(),
-                order.getUserId(), order.getCreatedAt(), order.getUpdatedAt(),order.getStatus(), order.getTotalAmount());
+        OrderDto OrderDto = new OrderDto(order.getId(),order.getBookId(),order.getCustomerId(),order.getQuantity()
+                ,order.getCreatedAt(), order.getUpdatedAt(),order.getTotalAmount(),order.getShippingAt(),order.getStatus(),
+                order.getShipper(), order.getPaymentMethod());
         return OrderDto;
     }
 
+    public Order addNewOrderDto(OrderDto orderdto) {
+
+        Order order = Order.builder()
+                        .bookId(orderdto.getBookId())
+                        .quantity(orderdto.getQuantity())
+                        .paymentMethod(orderdto.getPaymentMethod())
+                        .status(new OrderStatuses(1, "PENDING"))
+                        .build();
+        return order;
+    }
 }

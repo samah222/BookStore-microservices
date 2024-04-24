@@ -33,4 +33,16 @@ public class BookServiceImp implements BookService{
         return bookRepository.findAll().stream().map(b -> mapper.BookToBookDto(b)).toList();
     }
 
+    @Override
+    public BookDto updateBook(BookDto bookDto, int id) {
+        Book book = mapper.BookDtoToBook(bookDto);
+        book.setId(id);
+        return mapper.BookToBookDto(bookRepository.save(book));
+    }
+
+    @Override
+    public void deleteBook(int id) {
+        bookRepository.deleteById(id);
+    }
+
 }

@@ -19,12 +19,14 @@ public class OrderServiceImp implements OrderService {
     @Autowired
     private ProcessOrders processOrders;
 
-    public OrderDto addOrder(Order Order){
-        Order savedOrder = orderRepository.save(Order);
-        return mapper.OrderToOrderDto(savedOrder);
+    public OrderDto addOrder(OrderDto Orderdto){
+        Order order = mapper.addNewOrderDto(Orderdto);
+        Order savedOrder = orderRepository.save(order);
+        Order newOrder = processOrders.addNewOrder(savedOrder);
+        return mapper.OrderToOrderDto(newOrder);
     }
     public OrderDto getOrder(int id) {
-        Optional<Order> orderdb= orderRepository.findById(id);
+        Optional<Order> orderdb = orderRepository.findById(id);
         if(orderdb.isPresent())
             return mapper.OrderToOrderDto(orderdb.get());
         else
@@ -45,18 +47,23 @@ public class OrderServiceImp implements OrderService {
         Order order = mapper.OrderDtoToOrder(orderDto);
         order.setId(id);
 
-        Order updatedOrder = switch (order.getStatus()){
-            case PENDING -> processOrders.updatePendingOrder(order);
-            case PROCESSING -> processOrders.updateProcessingOrder(order);
-            case SHIPPED -> processOrders.updateShippedOrder(order);
-            case DELIVERED -> processOrders.updateDileveredOrder(order);
-            case CANCELED -> processOrders.updateCanceledOrder(order);
-            case RETURNED -> processOrders.updateReturnedOrder(order);
-            case REFUNDED -> processOrders.updateRefundedOrder(order);
-            case ON_HOLD -> processOrders.updateOnHoldOrder(order);
-            case COMPLETED -> processOrders.updateCompletedOrder(order);
-        };
+//        Order updatedOrder = switch (order.getStatus()){
+//            case PENDING -> processOrders.updatePendingOrder(order);
+//            case PROCESSING -> processOrders.updateProcessingOrder(order);
+//            case SHIPPED -> processOrders.updateShippedOrder(order);
+//            case DELIVERED -> processOrders.updateDileveredOrder(order);
+//            case CANCELED -> processOrders.updateCanceledOrder(order);
+//            case RETURNED -> processOrders.updateReturnedOrder(order);
+//            case REFUNDED -> processOrders.updateRefundedOrder(order);
+//            case ON_HOLD -> processOrders.updateOnHoldOrder(order);
+//            case COMPLETED -> processOrders.updateCompletedOrder(order);
+//        };
 
         return mapper.OrderToOrderDto(orderRepository.save(order));
+    }
+
+    @Override
+    public OrderDto cancelOrder(OrderDto orderDto, int id) {
+        return null;
     }
 }

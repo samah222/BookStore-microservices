@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface OrderService {
-    public OrderDto addOrder(Order Order);
+    public OrderDto addOrder(OrderDto OrderDto);
     public OrderDto getOrder(int id);
 
     public List<OrderDto> getAllOrders() ;
@@ -16,4 +16,6 @@ public interface OrderService {
     public List<OrderDto> getAllOrdersforBook(int bookId);
 
     public OrderDto updateOrder(OrderDto order, int id) ;
+
+    OrderDto cancelOrder(OrderDto orderDto, int id);
 }

@@ -11,24 +11,25 @@ public class Mapper {
             throw new NullPointerException("The Book DTO should not be null");
         }
         Book Book = new Book();
-        Book.setId(dto.id());
-        Book.setDescription(dto.description());
-        Book.setTitle(dto.title());
-        Book.setAuthors(dto.authors());
-        Book.setIsbn(dto.isbn());
-        Book.setGenres(dto.genres());
-        Book.setPrice(dto.price());
-        Book.setPublicationYear(dto.publicationYear());
-        Book.setPublisher(dto.publisher());
-        Book.setPages(dto.pages());
-        Book.setLanguage(dto.language());
+        Book.setId(dto.getId());
+        Book.setDescription(dto.getDescription());
+        Book.setTitle(dto.getTitle());
+        Book.setAuthors(dto.getAuthors());
+        Book.setIsbn(dto.getIsbn());
+        Book.setGenres(dto.getGenres());
+        Book.setPrice(dto.getPrice());
+        Book.setQuantity(dto.getQuantity());
+        Book.setPublicationYear(dto.getPublicationYear());
+        Book.setPublisher(dto.getPublisher());
+        Book.setPages(dto.getPages());
+        Book.setLanguage(dto.getLanguage());
 
         return Book;
     }
 
     public BookDto BookToBookDto(Book book){
         BookDto BookDto = new BookDto(book.getId(),book.getDescription(),book.getTitle(),
-                book.getAuthors(),book.getIsbn(),book.getGenres(), book.getPrice(),
+                book.getAuthors(),book.getIsbn(),book.getGenres(), book.getPrice(), book.getQuantity(),
                 book.getPublicationYear(), book.getPublisher(), book.getLanguage(), book.getPages());
         return BookDto;
     }

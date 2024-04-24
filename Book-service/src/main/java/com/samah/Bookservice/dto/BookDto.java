@@ -1,10 +1,29 @@
 package com.samah.Bookservice.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
-public record BookDto(Integer id, String description, String title, List<String> authors,
-                      String isbn, List<String> genres, double price, int publicationYear,
-                      String publisher,  String language, int pages) {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class BookDto{
+    private Integer id;
+    private String description;
+    private String title;
+    private List<String> authors;
+    private String isbn;
+    private List<String> genres;
+    private double price;
+    private int quantity;
+    private int publicationYear;
+    private String publisher;
+    private String language;
+    private int pages;
 
 }
 

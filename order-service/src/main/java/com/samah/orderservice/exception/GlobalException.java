@@ -12,6 +12,13 @@ public class GlobalException {
             ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
             return problemDetail;
         }
+
+    @ExceptionHandler(BookNotFoundException.class)
+    public ProblemDetail handleBookNotFoundException(BookNotFoundException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
+        return problemDetail;
+    }
+
         @ExceptionHandler(RuntimeException.class)
         public ProblemDetail handleRuntimeException(RuntimeException ex) {
             ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
@@ -29,6 +36,7 @@ public class GlobalException {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
         return problemDetail;
     }
+
 
 //        public ResponseEntity<String> handleOrderNotFoundException(OrderNotFoundException ex) {
 //            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Entity
 @AllArgsConstructor
-@Builder
+
 //@Transactional
 public class Employee extends User{
     @Column(nullable = false, length = 50)

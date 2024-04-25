@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -21,7 +22,7 @@ public class OrderDto{
         private Integer quantity;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
-        private double totalAmount;
+        private BigDecimal totalAmount;
         private LocalDateTime ShippingAt;
         private  OrderStatuses status;
         private  Shipper shipper;

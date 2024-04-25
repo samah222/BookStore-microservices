@@ -18,6 +18,12 @@ public class GlobalException {
             return problemDetail;
     }
 
+    @ExceptionHandler(NullPointerException.class)
+    public ProblemDetail handleNullPointerException(NullPointerException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
+        return problemDetail;
+    }
+
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleException(Exception ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());

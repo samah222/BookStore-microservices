@@ -6,6 +6,7 @@ import com.samah.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping
-    public ResponseEntity<UserDto> addUser(@RequestBody User user){
+    public ResponseEntity<UserDto> addUser(@Validated @RequestBody User user){
         return new ResponseEntity(userService.addUser(user), HttpStatus.CREATED);
     }
 
@@ -36,7 +37,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable Long id){
+    public ResponseEntity<UserDto> updateUser(@Validated @RequestBody UserDto userDto, @PathVariable Long id){
         userService.updateUser(id, userDto);
         return new ResponseEntity<>(userService.updateUser(id,userDto), HttpStatus.OK);
     }

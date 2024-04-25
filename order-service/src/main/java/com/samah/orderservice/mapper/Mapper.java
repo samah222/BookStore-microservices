@@ -28,6 +28,9 @@ public class Mapper {
     }
 
     public OrderDto OrderToOrderDto(Order order){
+        if(order == null){
+            throw new NullPointerException("The Order should not be null");
+        }
         OrderDto OrderDto = new OrderDto(order.getId(),order.getBookId(),order.getCustomerId(),order.getQuantity()
                 ,order.getCreatedAt(), order.getUpdatedAt(),order.getTotalAmount(),order.getShippingAt(),order.getStatus(),
                 order.getShipper(), order.getPaymentMethod());
@@ -35,7 +38,9 @@ public class Mapper {
     }
 
     public Order addNewOrderDto(OrderDto orderdto) {
-
+        if(orderdto == null){
+            throw new NullPointerException("The Order DTO should not be null");
+        }
         Order order = Order.builder()
                         .bookId(orderdto.getBookId())
                         .quantity(orderdto.getQuantity())

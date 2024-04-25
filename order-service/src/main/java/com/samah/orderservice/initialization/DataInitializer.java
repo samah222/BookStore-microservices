@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DataInitializer {
@@ -35,7 +36,7 @@ public class DataInitializer {
     }
 
     private void initializeOrderStatuses() {
-        ArrayList<OrderStatuses> orderStatuses = new ArrayList<OrderStatuses>();
+        List<OrderStatuses> orderStatuses = new ArrayList<OrderStatuses>();
         orderStatuses.add(new OrderStatuses(1,"PENDING"));
         orderStatuses.add(new OrderStatuses(2,"PROCESSING"));
         orderStatuses.add(new OrderStatuses(3,"SHIPPED"));

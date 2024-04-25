@@ -28,6 +28,8 @@ public class Mapper {
     }
 
     public BookDto BookToBookDto(Book book){
+        if(book == null)
+            throw new NullPointerException("The Book should not be null");
         BookDto BookDto = new BookDto(book.getId(),book.getDescription(),book.getTitle(),
                 book.getAuthors(),book.getIsbn(),book.getGenres(), book.getPrice(), book.getQuantity(),
                 book.getPublicationYear(), book.getPublisher(), book.getLanguage(), book.getPages());

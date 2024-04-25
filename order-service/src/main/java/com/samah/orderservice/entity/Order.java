@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity(name = "orders")
@@ -44,6 +45,6 @@ public class Order {
     private Shipper shipper;
     @ManyToOne
     private PaymentMethods paymentMethod;
-    private double totalAmount;
+    private BigDecimal totalAmount;
 
 }

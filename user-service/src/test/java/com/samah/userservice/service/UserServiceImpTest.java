@@ -7,6 +7,7 @@ import com.samah.userservice.entity.Role;
 import com.samah.userservice.entity.User;
 import com.samah.userservice.mapper.UserMapper;
 import com.samah.userservice.repository.UserRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -36,14 +37,10 @@ public class UserServiceImpTest {
     @BeforeEach
     void setup(){
         MockitoAnnotations.openMocks(this);
-//        PcUserService mock = org.mockito.Mockito.mock(PcUserService.class);
-//        when(mock.read("1")).thenReturn(pcUser);
         User mockUSer = org.mockito.Mockito.mock(User.class);
-
     }
     @Test
     public void when_add_user_should_be_saved_successfully(){
-        //given
         User user = new User(1L, "Samah", "123456789", "samahmahdi22@gmail.com",
                 "0511111111", new Address("street1","city1","state1","1111",
                 "Country1"), LocalDateTime.now(), LocalDateTime.now(), new Role(1,"ADMIN",
@@ -53,18 +50,17 @@ public class UserServiceImpTest {
                 new Address("street1","city1","state1","1111","Country1"),
                 new Role(1,"ADMIN", Set.of(new Privilege(1,"READ_WRITE"))) ) ;
 
-        //when
         when(mapper.UserToUserDto(user)).thenReturn(userDto);
         when(userRepository.save(user)).thenReturn(user);
         UserDto savedUserDto = userServiceImp.addUser(user);
 
-       //then
-       assertEquals(savedUserDto.id(),userDto.id());
-        assertEquals(savedUserDto.name(),userDto.name());
-        assertEquals(savedUserDto.role(),userDto.role());
-        assertEquals(savedUserDto.address(),userDto.address());
-        assertEquals(savedUserDto.phone(),userDto.phone());
-        assertEquals(savedUserDto.email(),userDto.email());
+       assertEquals(savedUserDto.getId(),userDto.getId());
+        assertEquals(savedUserDto.getName(),userDto.getName());
+        assertEquals(savedUserDto.getRole(),userDto.getRole());
+        assertEquals(savedUserDto.getPhone(),userDto.getPhone());
+        assertEquals(savedUserDto.getAddress(),userDto.getAddress());
+        assertEquals(savedUserDto.getEmail(),userDto.getEmail());
+
         verify(mapper,times(0)).UserDtoToUser(userDto);
         verify(userRepository,times(1)).save(user);
     }
@@ -80,12 +76,10 @@ public class UserServiceImpTest {
         when(mapper.UserToUserDto(any(User.class))).thenReturn(new UserDto(1L, "Samah", "samahmahdi22@gmail.com","0511111111",
                 new Address("street1","city1","state1","1111","Country1"),
                 new Role(1,"ADMIN", Set.of(new Privilege(1,"READ_WRITE"))) ));
-        //when
+
         List<UserDto> userDtos = userServiceImp.getAllUsers();
 
-        //then
         assertEquals(userDtos.size(),userList.size());
     }
-
 
 }

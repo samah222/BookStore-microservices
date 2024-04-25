@@ -1,12 +1,12 @@
 package com.samah.orderservice.controller;
 
 import com.samah.orderservice.client.BooksClient;
-import com.samah.orderservice.dto.BookDto;
 import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,12 +29,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderDto> addOrder(@RequestBody OrderDto orderDto){
+    public ResponseEntity<OrderDto> addOrder(@Validated @RequestBody OrderDto orderDto){
         return new ResponseEntity<>(orderService.addOrder(orderDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OrderDto> updateOrder(@RequestBody OrderDto orderDto, @PathVariable int id){
+    public ResponseEntity<OrderDto> updateOrder(@Validated @RequestBody OrderDto orderDto, @PathVariable int id){
         return new ResponseEntity<>(orderService.updateOrder(orderDto,id), HttpStatus.OK);
     }
 

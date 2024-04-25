@@ -35,6 +35,8 @@ public class BookServiceImp implements BookService{
 
     @Override
     public BookDto updateBook(BookDto bookDto, int id) {
+        if(bookDto == null)
+            throw new NullPointerException("bookDto is null");
         Book book = mapper.BookDtoToBook(bookDto);
         book.setId(id);
         return mapper.BookToBookDto(bookRepository.save(book));
@@ -42,6 +44,8 @@ public class BookServiceImp implements BookService{
 
     @Override
     public void deleteBook(int id) {
+        if(id<=0)
+            throw new RuntimeException("id can not be 0 or negative number");
         bookRepository.deleteById(id);
     }
 

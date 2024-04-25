@@ -11,16 +11,18 @@ public class UserMapper {
             throw new NullPointerException("The User DTO should not be null");
         }
         User user = new User();
-        user.setId(dto.id());
-        user.setName(dto.name());
-        user.setEmail(dto.email());
-        user.setAddress(dto.address());
-        user.setPhone(dto.phone());
-        user.setRole(dto.role());
+        user.setId(dto.getId());
+        user.setName(dto.getName());
+        user.setEmail(dto.getEmail());
+        user.setAddress(dto.getAddress());
+        user.setPhone(dto.getPhone());
+        user.setRole(dto.getRole());
         return user;
     }
 
     public UserDto UserToUserDto(User user){
+        if(user == null)
+            throw new NullPointerException("The user should not be null");
         UserDto userDto = new UserDto(user.getId(),user.getName(),user.getEmail(),
                 user.getPhone(), user.getAddress(), user.getRole() );
         return userDto;

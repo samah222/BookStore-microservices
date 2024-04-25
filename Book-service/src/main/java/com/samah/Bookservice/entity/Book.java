@@ -3,6 +3,7 @@ package com.samah.Bookservice.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Setter @Getter
@@ -21,7 +22,7 @@ public class Book {
     private List<String> authors;
     private String isbn;
     private List<String> genres;
-    private double price;
+    private BigDecimal price;
     private int quantity;
     private int publicationYear;
     private String publisher;

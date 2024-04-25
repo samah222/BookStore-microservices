@@ -12,16 +12,22 @@ public class GlobalException {
             ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
             return problemDetail;
         }
+
+        @ExceptionHandler(NullPointerException.class)
+        public ProblemDetail handleNullPointerException(NullPointerException ex) {
+            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
+            return problemDetail;
+        }
         @ExceptionHandler(RuntimeException.class)
         public ProblemDetail handleRuntimeException(RuntimeException ex) {
-            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
+            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
             return problemDetail;
     }
-    @ExceptionHandler(Exception.class)
-    public ProblemDetail handleException(Exception ex) {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
-        return problemDetail;
-    }
+        @ExceptionHandler(Exception.class)
+        public ProblemDetail handleException(Exception ex) {
+            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
+            return problemDetail;
+        }
 //        public ResponseEntity<String> handleBookNotFoundException(BookNotFoundException ex) {
 //            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 //        }

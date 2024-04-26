@@ -1,6 +1,6 @@
-package com.samah.Bookservice.controller;
+package com.samah.bookservice.controller;
 
-import com.samah.Bookservice.service.InfoService;
+import com.samah.bookservice.service.InfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -25,7 +25,7 @@ public class InfoController {
             @ApiResponse(responseCode = "200", description = "successful operation")
     })
     @GetMapping("/info")
-    public String getInfo(){
+    public String getInfo() {
         return infoService.getAppNameAndVersion();
     }
 
@@ -36,7 +36,7 @@ public class InfoController {
             @ApiResponse(responseCode = "200", description = "successful operation")
     })
     @GetMapping("/java-version")
-    public String getJavaVersion(){
+    public String getJavaVersion() {
         return infoService.getJavaVersion();
     }
 }

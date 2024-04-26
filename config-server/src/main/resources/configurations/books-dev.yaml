@@ -31,3 +31,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+logging:
+  file:
+    name: logs/books-dev.log
+  level:
+    org:
+      springframework:
+        web: DEBUG
+#    path: logs/users-service.log

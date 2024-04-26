@@ -1,4 +1,4 @@
-package com.samah.Bookservice.config;
+package com.samah.bookservice.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
@@ -35,13 +35,13 @@ public class OpenAPIConfig {
         contact.setName("Samah");
         contact.setUrl("https://www.linkedin.com/in/samah-alwahbani/");
 
-        License mitLicense = new License().name("Open-source License") ;
+        License mitLicense = new License().name("Open-source License");
 
         Info info = new Info()
                 .title("Bookstore - Book Service APIs")
                 .version("1.0")
                 .contact(contact)
-                .description("These APIs exposes endpoints to manage Book-service as part of Book-store microservice project.")                 .license(mitLicense);
+                .description("These APIs exposes endpoints to manage Book-service as part of Book-store microservice project.").license(mitLicense);
 
         return new OpenAPI().info(info).servers(List.of(devServer, prodServer));
     }

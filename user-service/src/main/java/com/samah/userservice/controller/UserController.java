@@ -18,7 +18,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/users")
-@Tag(name = "User Controller", description = "All CRUD operations for user service and other APIs to be used by other micro-services")
+@Tag(name = "User Controller",
+        description = "All CRUD operations for user service and other APIs to be used by other micro-services")
 public class UserController {
     @Autowired
     private UserService userService;

@@ -1,4 +1,4 @@
-package com.samah.Bookservice.service;
+package com.samah.bookservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,8 +14,8 @@ public class InfoService {
     @Autowired
     private Environment environment;
 
-    public String getAppNameAndVersion(){
-        return  "This application is "+applicationName+" and this version: "+applicationVersion;
+    public String getAppNameAndVersion() {
+        return "This application is " + applicationName + " and this version: " + applicationVersion;
     }
 
     public String getJavaVersion() {

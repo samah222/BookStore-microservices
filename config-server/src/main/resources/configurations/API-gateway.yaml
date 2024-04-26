@@ -37,3 +37,8 @@ myapp:
     dev-url: http://${myapp.server}:${server.port}
     qa-url: http://${myapp.server}:${server.port}
     prod-url: http://${myapp.server}:${server.port}
+
+logging:
+  file:
+    name: api-gateway-prod.log
+    path: /var/log

@@ -36,3 +36,8 @@ eureka:
 
 application-config:
   book-service: http://localhost:8080
+
+logging:
+  file:
+    name: orders-prod.log
+    path: /var/log

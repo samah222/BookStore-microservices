@@ -1,7 +1,7 @@
-package com.samah.Bookservice.mapper;
+package com.samah.bookservice.mapper;
 
-import com.samah.Bookservice.dto.BookDto;
-import com.samah.Bookservice.entity.Book;
+import com.samah.bookservice.dto.BookDto;
+import com.samah.bookservice.entity.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,17 +14,19 @@ class MapperTest {
     Mapper mapper;
     Book book;
     BookDto dto;
+
     @BeforeEach
-    void setup(){
+    void setup() {
         mapper = new Mapper();
     }
+
     @Test
     void should_map_bookDto_to_Book() {
-        BookDto dto = new BookDto(1,"Java book", "The guide of Learning Java", List.of("samah"),
-                "isbn 1",List.of("fiction"), BigDecimal.valueOf(100), 5,2024,"publisher company 1"
-                , "English",500) ;
+        BookDto dto = new BookDto(1, "Java book", "The guide of Learning Java", List.of("samah"),
+                "isbn 1", List.of("fiction"), BigDecimal.valueOf(100), 5, 2024, "publisher company 1"
+                , "English", 500);
         book = mapper.BookDtoToBook(dto);
-        assertEquals(book.getId() ,dto.getId());
+        assertEquals(book.getId(), dto.getId());
         assertEquals(book.getDescription(), dto.getDescription());
         assertEquals(book.getTitle(), dto.getTitle());
         assertEquals(book.getAuthors(), dto.getAuthors());
@@ -40,9 +42,9 @@ class MapperTest {
 
     @Test
     void should_map_book_to_BookDto() {
-        book = new Book(1,"Java book", "The guide of Learning Java", List.of("samah"),
-                "isbn 1",List.of("fiction"), BigDecimal.valueOf(100), 5,2024,"publisher company 1"
-                , "English",500) ;
+        book = new Book(1, "Java book", "The guide of Learning Java", List.of("samah"),
+                "isbn 1", List.of("fiction"), BigDecimal.valueOf(100), 5, 2024, "publisher company 1"
+                , "English", 500);
         dto = mapper.BookToBookDto(book);
         assertEquals(dto.getId(), book.getId());
         assertEquals(dto.getDescription(), book.getDescription());
@@ -59,16 +61,16 @@ class MapperTest {
     }
 
     @Test
-    public void should_throw_Null_Pointer_Exception_when_bookDto_is_null(){
+    public void should_throw_Null_Pointer_Exception_when_bookDto_is_null() {
         dto = null;
         var msg = assertThrows(NullPointerException.class, () -> mapper.BookDtoToBook(dto));
-        assertEquals(msg.getMessage(),"The Book DTO should not be null");
+        assertEquals(msg.getMessage(), "The Book DTO should not be null");
     }
 
     @Test
-    public void should_throw_Null_Pointer_Exception_when_book_is_null(){
+    public void should_throw_Null_Pointer_Exception_when_book_is_null() {
         book = null;
         var msg = assertThrows(NullPointerException.class, () -> mapper.BookToBookDto(book));
-        assertEquals(msg.getMessage(),"The Book should not be null");
+        assertEquals(msg.getMessage(), "The Book should not be null");
     }
 }

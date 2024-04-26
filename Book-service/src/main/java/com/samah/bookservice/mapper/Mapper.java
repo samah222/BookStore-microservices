@@ -1,13 +1,13 @@
-package com.samah.Bookservice.mapper;
+package com.samah.bookservice.mapper;
 
-import com.samah.Bookservice.dto.BookDto;
-import com.samah.Bookservice.entity.Book;
+import com.samah.bookservice.dto.BookDto;
+import com.samah.bookservice.entity.Book;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Mapper {
-    public Book BookDtoToBook(BookDto dto){
-        if(dto == null){
+    public Book BookDtoToBook(BookDto dto) {
+        if (dto == null) {
             throw new NullPointerException("The Book DTO should not be null");
         }
         Book Book = new Book();
@@ -27,11 +27,11 @@ public class Mapper {
         return Book;
     }
 
-    public BookDto BookToBookDto(Book book){
-        if(book == null)
+    public BookDto BookToBookDto(Book book) {
+        if (book == null)
             throw new NullPointerException("The Book should not be null");
-        BookDto BookDto = new BookDto(book.getId(),book.getDescription(),book.getTitle(),
-                book.getAuthors(),book.getIsbn(),book.getGenres(), book.getPrice(), book.getQuantity(),
+        BookDto BookDto = new BookDto(book.getId(), book.getDescription(), book.getTitle(),
+                book.getAuthors(), book.getIsbn(), book.getGenres(), book.getPrice(), book.getQuantity(),
                 book.getPublicationYear(), book.getPublisher(), book.getLanguage(), book.getPages());
         return BookDto;
     }

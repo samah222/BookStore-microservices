@@ -36,3 +36,11 @@ eureka:
 
 application-config:
   book-service: http://localhost:8080
+
+logging:
+  file:
+    name: logs/orders-dev.log
+  level:
+    org:
+      springframework:
+        web: DEBUG

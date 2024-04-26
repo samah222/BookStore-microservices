@@ -1,8 +1,8 @@
-package com.samah.Bookservice.controller;
+package com.samah.bookservice.controller;
 
-import com.samah.Bookservice.dto.BookDto;
-import com.samah.Bookservice.entity.Book;
-import com.samah.Bookservice.service.BookService;
+import com.samah.bookservice.dto.BookDto;
+import com.samah.bookservice.entity.Book;
+import com.samah.bookservice.service.BookService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -23,6 +23,7 @@ import java.util.List;
 public class BookController {
     @Autowired
     BookService bookService;
+
     @Operation(
             summary = "Get a book",
             description = "Get a book")
@@ -31,7 +32,7 @@ public class BookController {
     })
     @GetMapping("/{id}")
     public ResponseEntity<BookDto> getBook(@Parameter(description = "ID of book to be retrieved",
-            required = true) @PathVariable int id){
+            required = true) @PathVariable int id) {
         return new ResponseEntity<>(bookService.getBook(id), HttpStatus.OK);
     }
 
@@ -42,7 +43,7 @@ public class BookController {
             @ApiResponse(responseCode = "200", description = "successful operation")
     })
     @GetMapping
-    public ResponseEntity<List<BookDto>> getAllBook(){
+    public ResponseEntity<List<BookDto>> getAllBook() {
         return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
     }
 
@@ -53,7 +54,7 @@ public class BookController {
             @ApiResponse(responseCode = "201")
     })
     @PostMapping
-    public ResponseEntity<BookDto> addBook(@Validated @RequestBody Book book){
+    public ResponseEntity<BookDto> addBook(@Validated @RequestBody Book book) {
         return new ResponseEntity<>(bookService.addBook(book), HttpStatus.CREATED);
     }
 
@@ -66,7 +67,7 @@ public class BookController {
     @PutMapping("/{id}")
     public ResponseEntity<BookDto> updateBook(@Validated @RequestBody BookDto bookDto,
                                               @Parameter(description = "ID of book to be updated",
-            required = true) @PathVariable int id){
+                                                      required = true) @PathVariable int id) {
         return new ResponseEntity<>(bookService.updateBook(bookDto, id), HttpStatus.OK);
     }
 
@@ -77,7 +78,7 @@ public class BookController {
             @ApiResponse(responseCode = "204")
     })
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteBook(@PathVariable int id){
+    public ResponseEntity deleteBook(@PathVariable int id) {
         bookService.deleteBook(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

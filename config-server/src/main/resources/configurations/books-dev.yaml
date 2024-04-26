@@ -1,11 +1,11 @@
 spring:
   application:
-    name: books-service
+    name: books
     version: v1
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://localhost:3306/books_service
+    url: jdbc:mysql://${myapp.DB-server}:${myapp.DB-port}/${myapp.DB-name}
     password: E15@root
   jpa:
     hibernate:
@@ -14,6 +14,16 @@ spring:
 
 server:
   port: '8081'
+
+myapp:
+  server: localhost
+  DB-server: localhost
+  DB-port: 3306
+  DB-name: books_service
+  openapi:
+    dev-url: http://${myapp.server}:${server.port}
+    qa-url: http://${myapp.server}:${server.port}
+    prod-url: http://${myapp.server}:${server.port}
 
 eureka:
   instance:

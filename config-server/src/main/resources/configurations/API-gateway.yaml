@@ -30,3 +30,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+myapp:
+  server: localhost
+  openapi:
+    dev-url: http://${myapp.server}:${server.port}
+    qa-url: http://${myapp.server}:${server.port}
+    prod-url: http://${myapp.server}:${server.port}

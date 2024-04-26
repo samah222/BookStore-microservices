@@ -1,6 +1,7 @@
 package com.samah.orderservice.service;
 
 import com.samah.orderservice.client.BooksClient;
+import com.samah.orderservice.dto.BookDto;
 import com.samah.orderservice.entity.Order;
 import com.samah.orderservice.exception.BookNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

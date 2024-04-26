@@ -1,5 +1,6 @@
 package com.samah.orderservice.client;
 
+import com.samah.orderservice.dto.BookDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

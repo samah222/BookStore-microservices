@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: orders
+    version: v1
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://${myapp.DB-server}:${myapp.DB-port}/${myapp.DB-name}
+    password: E15@root
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: 'true'
+
+server:
+  port: '8083'
+
+myapp:
+  server: localhost
+  DB-server: localhost
+  DB-port: 3306
+  DB-name: orders_service
+  openapi:
+    dev-url: http://${myapp.server}:${server.port}
+    qa-url: http://${myapp.server}:${server.port}
+    prod-url: http://${myapp.server}:${server.port}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+application-config:
+  book-service: http://localhost:8080

@@ -1,7 +1,6 @@
 package com.samah.orderservice.controller;
 
 import com.samah.orderservice.client.BooksClient;
-import com.samah.orderservice.dto.BookDto;
 import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,12 +18,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/orders")
-@Tag(name = "Order Controller", description = "All CRUD operations for Order service and many APIs to be used by other micro-services")
+@Tag(name = "Order ", description = "All CRUD operations for Order service and many APIs to be used by other micro-services")
 public class OrderController {
     @Autowired
     BooksClient booksClient;
     @Autowired
     OrderService orderService;
+
     @Operation(
             summary = "Get an order",
             description = "Get an order")
@@ -33,7 +33,7 @@ public class OrderController {
     })
     @GetMapping("/{id}")
     public ResponseEntity<OrderDto> getOrder(@Parameter(description = "ID of an order to be retrieved",
-            required = true) @PathVariable int id){
+            required = true) @PathVariable int id) {
         return new ResponseEntity<>(orderService.getOrder(id), HttpStatus.OK);
     }
 
@@ -44,7 +44,7 @@ public class OrderController {
             @ApiResponse(responseCode = "200", description = "successful operation")
     })
     @GetMapping
-    public ResponseEntity<List<OrderDto>> getAllOrders(){
+    public ResponseEntity<List<OrderDto>> getAllOrders() {
         return new ResponseEntity<List<OrderDto>>(orderService.getAllOrders(), HttpStatus.OK);
     }
 
@@ -55,7 +55,7 @@ public class OrderController {
             @ApiResponse(responseCode = "201")
     })
     @PostMapping
-    public ResponseEntity<OrderDto> addOrder(@Validated @RequestBody OrderDto orderDto){
+    public ResponseEntity<OrderDto> addOrder(@Validated @RequestBody OrderDto orderDto) {
         return new ResponseEntity<>(orderService.addOrder(orderDto), HttpStatus.CREATED);
     }
 
@@ -67,8 +67,8 @@ public class OrderController {
     })
     @PutMapping("/{id}")
     public ResponseEntity<OrderDto> updateOrder(@Validated @RequestBody OrderDto orderDto, @Parameter(description = "ID of order to be updated",
-            required = true) @PathVariable int id){
-        return new ResponseEntity<>(orderService.updateOrder(orderDto,id), HttpStatus.OK);
+            required = true) @PathVariable int id) {
+        return new ResponseEntity<>(orderService.updateOrder(orderDto, id), HttpStatus.OK);
     }
 
     /*

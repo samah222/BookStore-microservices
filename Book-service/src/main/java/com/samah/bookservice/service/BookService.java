@@ -18,4 +18,12 @@ public interface BookService {
     BookDto updateBook(BookDto bookDto, int id);
 
     void deleteBook(int id);
+
+    List<BookDto> getBooksByISBN(String isbn);
+
+    List<BookDto> getBooksByLanguage(String language);
+
+    List<BookDto> getBooksByPublisher(String publisher);
+
+    List<BookDto> getBooksByPublicationYearBetween(int year1, int year2);
 }

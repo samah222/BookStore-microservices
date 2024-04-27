@@ -1,0 +1,19 @@
+2024-04-27T17:08:53.054+04:00  INFO 27848 --- [users] [main] c.s.u.controller.InfoControllerTest      : Starting InfoControllerTest using Java 21.0.2 with PID 27848 (started by User in D:\learningSpringBoot\BookStore Microservice\Bookstore-mircroservices\user-service)
+2024-04-27T17:08:53.081+04:00  INFO 27848 --- [users] [main] c.s.u.controller.InfoControllerTest      : The following 1 profile is active: "dev"
+2024-04-27T17:08:53.147+04:00  INFO 27848 --- [users] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-04-27T17:08:53.147+04:00  INFO 27848 --- [users] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=users, profiles=[default], label=null, version=null, state=null
+2024-04-27T17:08:53.148+04:00  INFO 27848 --- [users] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-04-27T17:08:53.149+04:00  INFO 27848 --- [users] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=users, profiles=[dev], label=null, version=null, state=null
+2024-04-27T17:08:53.156+04:00 DEBUG 27848 --- [users] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@76db540e
+2024-04-27T17:08:57.547+04:00 DEBUG 27848 --- [users] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2024-04-27T17:08:57.826+04:00 DEBUG 27848 --- [users] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-04-27T17:08:58.208+04:00 DEBUG 27848 --- [users] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-04-27T17:08:58.295+04:00 DEBUG 27848 --- [users] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-04-27T17:08:58.510+04:00  INFO 27848 --- [users] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-04-27T17:08:58.511+04:00  INFO 27848 --- [users] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-04-27T17:08:58.515+04:00  INFO 27848 --- [users] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-04-27T17:08:58.619+04:00  INFO 27848 --- [users] [main] c.s.u.controller.InfoControllerTest      : Started InfoControllerTest in 8.013 seconds (process running for 10.896)
+2024-04-27T17:08:58.805+04:00 DEBUG 27848 --- [users] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.samah.userservice.controller.InfoController#getJavaVersion()
+2024-04-27T17:08:58.873+04:00 DEBUG 27848 --- [users] [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2024-04-27T17:08:58.876+04:00 DEBUG 27848 --- [users] [main] m.m.a.RequestResponseBodyMethodProcessor : Writing ["java 21.0.2"]
+2024-04-27T17:08:58.996+04:00 DEBUG 27848 --- [users] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@76db540e, started on Sat Apr 27 17:08:53 GST 2024

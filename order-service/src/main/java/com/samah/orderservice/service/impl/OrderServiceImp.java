@@ -1,9 +1,11 @@
-package com.samah.orderservice.service;
+package com.samah.orderservice.service.impl;
 
 import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.entity.Order;
 import com.samah.orderservice.mapper.Mapper;
 import com.samah.orderservice.repository.OrderRepository;
+import com.samah.orderservice.service.OrderService;
+import com.samah.orderservice.service.ProcessOrders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,15 +21,16 @@ public class OrderServiceImp implements OrderService {
     @Autowired
     private ProcessOrders processOrders;
 
-    public OrderDto addOrder(OrderDto Orderdto){
+    public OrderDto addOrder(OrderDto Orderdto) {
         Order order = mapper.addNewOrderDto(Orderdto);
         Order savedOrder = orderRepository.save(order);
         Order newOrder = processOrders.addNewOrder(savedOrder);
         return mapper.OrderToOrderDto(newOrder);
     }
+
     public OrderDto getOrder(int id) {
         Optional<Order> orderdb = orderRepository.findById(id);
-        if(orderdb.isPresent())
+        if (orderdb.isPresent())
             return mapper.OrderToOrderDto(orderdb.get());
         else
             throw new RuntimeException("Order not found");

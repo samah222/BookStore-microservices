@@ -50,4 +50,41 @@ public class BookServiceImp implements BookService {
         bookRepository.deleteById(id);
     }
 
+    @Override
+    public List<BookDto> getBooksByISBN(String isbn) {
+        List<Book> books = bookRepository.findByIsbnContaining(isbn);
+        return books.isEmpty() ? null : books.stream().map(b -> mapper.BookToBookDto(b)).toList();
+//        if (books.isEmpty())
+//            return null;
+//        return books.stream().map(b -> mapper.BookToBookDto(b)).toList();
+    }
+
+    @Override
+    public List<BookDto> getBooksByLanguage(String language) {
+        List<Book> books = bookRepository.findByLanguage(language);
+        return books.isEmpty() ? null : books.stream().map(b -> mapper.BookToBookDto(b)).toList();
+    }
+
+    @Override
+    public List<BookDto> getBooksByPublisher(String publisher) {
+        List<Book> books = bookRepository.findByPublisher(publisher);
+        return books.isEmpty() ? null : books.stream().map(b -> mapper.BookToBookDto(b)).toList();
+    }
+
+    @Override
+    public List<BookDto> getBooksByPublicationYearBetween(int year1, int year2) {
+        List<Book> books;
+        if (year1 == year2) {
+            books = bookRepository.findByPublicationYear(year1);
+            return books.isEmpty() ? null : books.stream().map(b -> mapper.BookToBookDto(b)).toList();
+        }
+        if (year1 > year2) {
+            int temp = year1;
+            year1 = year2;
+            year2 = temp;
+        }
+        books = bookRepository.findByPublicationYearBetween(year1, year2);
+        return books.isEmpty() ? null : books.stream().map(b -> mapper.BookToBookDto(b)).toList();
+    }
+
 }

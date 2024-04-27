@@ -1,0 +1,22 @@
+2024-04-27T17:12:44.664+04:00  INFO 19356 --- [orders] [main] c.s.o.controller.InfoControllerTest      : Starting InfoControllerTest using Java 21.0.2 with PID 19356 (started by User in D:\learningSpringBoot\BookStore Microservice\Bookstore-mircroservices\order-service)
+2024-04-27T17:12:44.676+04:00  INFO 19356 --- [orders] [main] c.s.o.controller.InfoControllerTest      : The following 1 profile is active: "dev"
+2024-04-27T17:12:44.740+04:00  INFO 19356 --- [orders] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-04-27T17:12:44.742+04:00  INFO 19356 --- [orders] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=orders, profiles=[default], label=null, version=null, state=null
+2024-04-27T17:12:44.755+04:00  INFO 19356 --- [orders] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-04-27T17:12:44.755+04:00  INFO 19356 --- [orders] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=orders, profiles=[dev], label=null, version=null, state=null
+2024-04-27T17:12:44.763+04:00 DEBUG 19356 --- [orders] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@76db540e
+2024-04-27T17:12:49.253+04:00 DEBUG 19356 --- [orders] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2024-04-27T17:12:49.596+04:00 DEBUG 19356 --- [orders] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-04-27T17:12:50.138+04:00 DEBUG 19356 --- [orders] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-04-27T17:12:50.276+04:00 DEBUG 19356 --- [orders] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-04-27T17:12:50.579+04:00  INFO 19356 --- [orders] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-04-27T17:12:50.581+04:00  INFO 19356 --- [orders] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-04-27T17:12:50.586+04:00  INFO 19356 --- [orders] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2024-04-27T17:12:50.716+04:00  INFO 19356 --- [orders] [main] c.s.o.controller.InfoControllerTest      : Started InfoControllerTest in 8.105 seconds (process running for 10.633)
+2024-04-27T17:12:50.979+04:00 DEBUG 19356 --- [orders] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.samah.orderservice.controller.InfoController#getInfo()
+2024-04-27T17:12:51.075+04:00 DEBUG 19356 --- [orders] [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2024-04-27T17:12:51.078+04:00 DEBUG 19356 --- [orders] [main] m.m.a.RequestResponseBodyMethodProcessor : Writing ["This application is orders and this version: v1"]
+2024-04-27T17:12:51.190+04:00 DEBUG 19356 --- [orders] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.samah.orderservice.controller.InfoController#getJavaVersion()
+2024-04-27T17:12:51.194+04:00 DEBUG 19356 --- [orders] [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2024-04-27T17:12:51.195+04:00 DEBUG 19356 --- [orders] [main] m.m.a.RequestResponseBodyMethodProcessor : Writing ["java 21.0.2"]
+2024-04-27T17:12:51.236+04:00 DEBUG 19356 --- [orders] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@76db540e, started on Sat Apr 27 17:12:44 GST 2024

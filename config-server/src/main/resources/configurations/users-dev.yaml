@@ -8,6 +8,18 @@ spring:
     username: root
     url: jdbc:mysql://${myapp.DB-server}:${myapp.DB-port}/${myapp.DB-name}
     password: E15@root
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+            required: 'true'
+          auth: 'true'
+    username: samahmahdi22@gmail.com
+    host: smtp.gmail.com
+    password: ejfiixnybohuuttd
+    port: '587'
 
   jpa:
     hibernate:

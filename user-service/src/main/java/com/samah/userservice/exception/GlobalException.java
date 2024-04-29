@@ -7,15 +7,22 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalException {
-        @ExceptionHandler(UserNotFoundException.class)
-        public ProblemDetail handleUserNotFoundException(UserNotFoundException ex) {
-            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
-            return problemDetail;
-        }
-        @ExceptionHandler(RuntimeException.class)
-        public ProblemDetail handleRuntimeException(RuntimeException ex) {
-            ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
-            return problemDetail;
+    @ExceptionHandler(UserNotFoundException.class)
+    public ProblemDetail handleUserNotFoundException(UserNotFoundException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ProblemDetail handleRuntimeException(RuntimeException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(PasswordNotMatchingException.class)
+    public ProblemDetail handlePasswordNotMatchingException(PasswordNotMatchingException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
+        return problemDetail;
     }
 
     @ExceptionHandler(NullPointerException.class)

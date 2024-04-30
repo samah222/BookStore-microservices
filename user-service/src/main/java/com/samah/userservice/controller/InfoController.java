@@ -1,7 +1,6 @@
 package com.samah.userservice.controller;
 
-import com.samah.userservice.service.InfoService;
-
+import com.samah.userservice.service.impl.InfoServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1")
 public class InfoController {
     @Autowired
-    private InfoService infoService;
+    private InfoServiceImpl infoService;
 
     @Operation(
             summary = "Fetch general app info ",

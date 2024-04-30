@@ -1,4 +1,4 @@
-package com.samah.userservice.service;
+package com.samah.userservice.service.impl;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Getter
 @Setter
-public class InfoService {
+public class InfoServiceImpl {
     @Value("${spring.application.name}")
     private String applicationName;
     @Value("${spring.application.version}")

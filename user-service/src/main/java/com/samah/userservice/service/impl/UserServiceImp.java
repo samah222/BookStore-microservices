@@ -12,7 +12,6 @@ import com.samah.userservice.mapper.UserMapper;
 import com.samah.userservice.repository.ChangePasswordVerificationTokenRepository;
 import com.samah.userservice.repository.ResetVerificationTokenRepository;
 import com.samah.userservice.repository.VerificationTokenRepository;
-import com.samah.userservice.service.InfoService;
 import com.samah.userservice.service.UserService;
 import com.samah.userservice.utils.TokenExpirationTime;
 import com.samah.userservice.utils.UserUtils;
@@ -41,7 +40,7 @@ public class UserServiceImp implements UserService {
     @Autowired
     private MailSenderService mailSenderService;
     @Autowired
-    private InfoService infoService;
+    private InfoServiceImpl infoServiceImpl;
     UserMapper userMapper;
 
     @Override
@@ -78,7 +77,7 @@ public class UserServiceImp implements UserService {
         String token = UUID.randomUUID().toString();
         saveVerificationToken(savedUser, token);
         // send email
-        String url = "http://" + infoService.getMyappServer() + ":" + infoService.getServerPort()
+        String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/verifyRegistration?token=" + token;
         mailSenderService.sendNewMail(savedUser.getEmail(), "BookStore Registration Token"
                 , " Please click on this url to confirm your email : " + url);
@@ -154,7 +153,7 @@ public class UserServiceImp implements UserService {
             return new CustomResponse(UserUtils.Max_NUMBER_OF_TOKENS, "Max_NUMBER_OF_TOKENS");
         String token = UUID.randomUUID().toString();
         saveVerificationToken(user.get(), token);
-        String url = "http://" + infoService.getMyappServer() + ":" + infoService.getServerPort()
+        String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/newToken?token=" + token;
         mailSenderService.sendNewMail(email, "BookStore Registration Resend Token"
                 , " Please click on this url to confirm your email : " + url);
@@ -202,7 +201,7 @@ public class UserServiceImp implements UserService {
         }
         saveResetVerificationToken(user.get(), token);
         // send email
-        String url = "http://" + infoService.getMyappServer() + ":" + infoService.getServerPort()
+        String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/resetPassword?token=" + token;
         mailSenderService.sendNewMail(user.get().getEmail(), "BookStore- Token for Request Reset Password"
                 , " Please click on this url to reset your password : " + url);

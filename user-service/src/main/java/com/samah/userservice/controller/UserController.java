@@ -1,10 +1,6 @@
 package com.samah.userservice.controller;
 
-import com.samah.userservice.dto.UserDto;
-import com.samah.userservice.dto.UserRegistrationDto;
-import com.samah.userservice.event.RegistrationCompleteEvent;
-import com.samah.userservice.event.SendMailEvent;
-import com.samah.userservice.mail.MailSenderService;
+import com.samah.userservice.dto.*;
 import com.samah.userservice.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -60,11 +56,8 @@ public class UserController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201")})
     @GetMapping("/resendVerificationToken")
-    public ResponseEntity<String> resendVerificationToken(@RequestParam("email") String email) {
-        String result = userService.resendVerificationToken(email);
-        if (result == null)
-            return new ResponseEntity<>("email not found, please register now", HttpStatus.OK);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public ResponseEntity<CustomResponse> resendVerificationToken(@RequestParam("email") String email) {
+        return new ResponseEntity<>(userService.resendVerificationToken(email), HttpStatus.OK);
     }
 
     //
@@ -83,12 +76,33 @@ public class UserController {
     }
 
     //change password
-    //reset password
+    @Operation(summary = "Change Password", description = "Change Password")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201")})
+    @PostMapping("/changePassword")
+    public ResponseEntity<CustomResponse> changePassword(@Validated @RequestBody ChangePasswordDto changePasswordDto) {
+        return new ResponseEntity<CustomResponse>(userService.changePassword(changePasswordDto), HttpStatus.OK);
+    }
+
+    @Operation(summary = "Request Reset Password", description = "Request Reset Password")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201")})
+    @PostMapping("/requestResetPassword")
+    public ResponseEntity<CustomResponse> requestResetPassword(@Validated @RequestBody RequestResetPasswordDto requestResetPasswordDto) {
+        return new ResponseEntity<CustomResponse>(userService.requestResetPassword(requestResetPasswordDto), HttpStatus.OK);
+    }
+
+    @Operation(summary = " Reset Password", description = " Reset Password")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201")})
+    @PostMapping("/resetPassword")
+    public ResponseEntity<CustomResponse> ResetPassword(@Validated @RequestBody ResetPasswordDto resetPasswordDto) {
+        return new ResponseEntity<CustomResponse>(userService.resetPassword(resetPasswordDto), HttpStatus.OK);
+    }
 
     @Operation(summary = "Get a user", description = "Get a user")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "successful operation")
-    })
+            @ApiResponse(responseCode = "200", description = "successful operation")})
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUser(@Parameter(description = "ID of user to be retrieved",
             required = true) @PathVariable Long id) {

@@ -14,6 +14,19 @@ spring:
       ddl-auto: create-drop
     show-sql: 'false'
 
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+            required: 'true'
+          auth: 'true'
+    username: samahmahdi22@gmail.com
+    host: smtp.gmail.com
+    password: ejfiixnybohuuttd
+    port: '587'
+    
 server:
   port: '8082'
 

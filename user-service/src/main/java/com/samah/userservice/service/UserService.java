@@ -1,8 +1,6 @@
 package com.samah.userservice.service;
 
-import com.samah.userservice.dto.UserDto;
-import com.samah.userservice.dto.UserRegistrationDto;
-import com.samah.userservice.entity.User;
+import com.samah.userservice.dto.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,11 +19,13 @@ public interface UserService {
 
     UserDto updateUser(Long id, UserDto dto);
 
-    void saveVerificationTokenForUSer(UserDto dto, String token);
-
-    void saveVerificationTokenForUSer(User user, String token);
-
     int validateVerificationToken(String token);
 
-    String resendVerificationToken(String email);
+    CustomResponse resendVerificationToken(String email);
+
+    CustomResponse changePassword(ChangePasswordDto changePasswordDto);
+
+    CustomResponse requestResetPassword(RequestResetPasswordDto requestResetPasswordDto);
+
+    CustomResponse resetPassword(ResetPasswordDto resetPasswordDto);
 }

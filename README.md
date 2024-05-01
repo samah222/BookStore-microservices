@@ -1,3 +1,4 @@
+# BookStore microservices
 BookStore microservice is a project ro manage Book store which has user management, Books and order services. It consists of the following:
 
 ### Config Server
@@ -42,3 +43,4 @@ REST client to enable the services communicate with each others
 In addition of:
 - MYSQL database: used as the relational DB for all services
 - Docker and Docker-compose: the project provides one docker-compose file so, the whole application can easily build and run
+- springdoc-openapi: automate the generation of API documentation.

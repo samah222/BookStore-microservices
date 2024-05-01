@@ -1,19 +1,13 @@
-# BookStore-config-server
+# BookStore Order Service
 
-BookStore - Order Service
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Running the Config Server](#running-the-config-server)
-- [Configuration Management](#configuration-management)
-    - [Git Repository](#git-repository)
-    - [Configuration Files](#configuration-files)
-- [Client Services](#client-services)
-- [Contributing](#contributing)
-- [License](#license)
+    - [Running the Server](#running-the-server)
+- [Order APIs](#Order-APIs)
 
 ## Project Overview
 
@@ -30,19 +24,30 @@ To run this project, you need the following tools installed:
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [Maven](https://maven.apache.org/download.cgi)
 
-### Running the Config Server
+### Running the Order Service
 
 1. Clone this repository to your local machine:
 
    ```bash
    https://github.com/samah222/BookStore-microservices.git
-
-2. Navigate to the project directory:
+2. Navigate to config server and run it first
    ```bash
-   cd order-service
+    cd config-server
+    mvn spring-boot:run
 
-3. Build and run the Spring Boot Server:
+3. Second, navigate to Eureka-server and run it:
+   ```bash
+    cd Eureka-server
+    mvn spring-boot:run
+   
+4. Third, navigate to API-gateway and run it:
+   ```bash
+   cd API-gateway
+   mvn spring-boot:run
+
+5. Finally, navigate to the order project directory and run it:
     ```bash
+   cd order-service
    mvn spring-boot:run
 
 The Order service will start on port 8082, see the application.properties file.
@@ -50,5 +55,7 @@ To build docker image for this service. There are two options, using Dockerfile 
 
 Then to build the image use the following commands:
 
-  ```bash
- mvn spring-boot:build-image
+    mvn spring-boot:build-image
+
+## Order Service APIs
+![screenshot](order.png)

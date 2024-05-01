@@ -1,18 +1,17 @@
-BookStore microservice is a project ro manage Book store which has user management, Books and order services. It consist of the following:
+BookStore microservice is a project ro manage Book store which has user management, Books and order services. It consists of the following:
 
 ### Config Server
-In microservices architecture, it's essential to manage configuration properties efficiently across services.
-The Spring Cloud Config Server simplifies this by providing a centralized location for storing and distributing
-configuration properties. This config-server set up a Spring Boot Configuration Server for all BookStore
-services to retrieve their configuration from it.
+It provides a centralized location for storing and distributing
+configuration properties for all bookstore services (eureka server, API gateway, 
+book, order and user) with different profiles(dev, test and prod). 
 
 ### Eureka Server
 It acts as service discovery for microservices, which is a way for applications and microservices to locate
 each other on a network automatically.
 
 ### API Gateway
-In microservices architecture, An API gateway acts as a centralized entry point for all microservice.
-It is essential to manage incoming requests and routes them based on key
+It acts as a centralized entry point for all bookstore microservice.
+It manages the incoming requests and routes them based on key
 factors such as request path, headers, and query parameters, among others.
 
 ### Book Service
@@ -28,3 +27,18 @@ to ensure data consistency when processing orders.
 ### User Service
 User Service is responsible for managing user accounts and authentication. Implement APIs for user registration,
 change password, password reset, and profile management.
+
+### Technologies Used
+Bookstore microservice project uses many frameworks of Spring Boot as as:
+ - Spring web: to build REST APIs
+ - Spring Cloud (Config, Eureka server,OpenFeign): spring cloud provides many sub-projects
+to manage the microservice, such as providing central config server, service discovery and load-blancer, and
+REST client to enable the services communicate with each others
+ - Spring JPA: to manage DB operations
+ - Actuator: to monitor the service and get metrics
+ - JavaMailSender: to send emails e.g. user registration token, password change tokens
+ - Spring Validation: to validate objects including Hibernate validator.
+ - Spring AOP: to encapsulate and modularize cross-cutting concerns (e.g. logging)
+In addition of:
+- MYSQL database: used as the relational DB for all services
+- Docker and Docker-compose: the project provides one docker-compose file so, the whole application can easily build and run

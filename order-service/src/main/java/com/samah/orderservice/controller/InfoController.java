@@ -1,6 +1,6 @@
 package com.samah.orderservice.controller;
 
-import com.samah.orderservice.service.InfoService;
+import com.samah.orderservice.service.impl.InfoServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1")
 public class InfoController {
     @Autowired
-    private InfoService infoService;
+    private InfoServiceImpl infoServiceImpl;
 
     @Operation(
             summary = "Fetch general app info ",
@@ -26,7 +26,7 @@ public class InfoController {
     })
     @GetMapping("/info")
     public String getInfo() {
-        return infoService.getAppNameAndVersion();
+        return infoServiceImpl.getAppNameAndVersion();
     }
 
     @Operation(
@@ -37,6 +37,6 @@ public class InfoController {
     })
     @GetMapping("/java-version")
     public String getJavaVersion() {
-        return infoService.getJavaVersion();
+        return infoServiceImpl.getJavaVersion();
     }
 }

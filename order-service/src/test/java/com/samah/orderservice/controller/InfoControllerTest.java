@@ -1,6 +1,6 @@
 package com.samah.orderservice.controller;
 
-import com.samah.orderservice.service.InfoService;
+import com.samah.orderservice.service.impl.InfoServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,18 +19,18 @@ class InfoControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
-    InfoService infoService;
+    InfoServiceImpl infoServiceImpl;
 
     @Test
     void shouldReturnAppInfo() throws Exception {
-        when(infoService.getAppNameAndVersion()).thenReturn("This application is orders and this version: v1");
+        when(infoServiceImpl.getAppNameAndVersion()).thenReturn("This application is orders and this version: v1");
         this.mockMvc.perform(get("/v1/info")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("This application is orders and this version: v1")));
     }
 
     @Test
     void getJavaVersion() throws Exception {
-        when(infoService.getJavaVersion()).thenReturn("java 21.0.2");
+        when(infoServiceImpl.getJavaVersion()).thenReturn("java 21.0.2");
         this.mockMvc.perform(get("/v1/java-version")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("java 21.0.2")));
     }

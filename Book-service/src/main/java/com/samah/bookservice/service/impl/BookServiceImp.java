@@ -1,10 +1,11 @@
-package com.samah.bookservice.service;
+package com.samah.bookservice.service.impl;
 
 import com.samah.bookservice.dto.BookDto;
 import com.samah.bookservice.entity.Book;
 import com.samah.bookservice.exception.BookNotFoundException;
 import com.samah.bookservice.mapper.Mapper;
 import com.samah.bookservice.repository.BookRepository;
+import com.samah.bookservice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,9 +55,6 @@ public class BookServiceImp implements BookService {
     public List<BookDto> getBooksByISBN(String isbn) {
         List<Book> books = bookRepository.findByIsbnContaining(isbn);
         return books.isEmpty() ? null : books.stream().map(b -> mapper.BookToBookDto(b)).toList();
-//        if (books.isEmpty())
-//            return null;
-//        return books.stream().map(b -> mapper.BookToBookDto(b)).toList();
     }
 
     @Override

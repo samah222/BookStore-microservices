@@ -1,6 +1,6 @@
 package com.samah.bookservice.controller;
 
-import com.samah.bookservice.service.InfoService;
+import com.samah.bookservice.service.impl.InfoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

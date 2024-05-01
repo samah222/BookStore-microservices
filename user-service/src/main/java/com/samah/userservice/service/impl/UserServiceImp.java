@@ -45,19 +45,15 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDto getUserByName(String name) {
-        Optional<User> user = userRepository.findByName(name);
-        if (!user.isPresent())
-            throw new UserNotFoundException("User not found");
-        return userMapper.UserToUserDto(user.get());
+        User user = userRepository.findByName(name).orElseThrow(() -> new UserNotFoundException("User not found"));
+        return userMapper.UserToUserDto(user);
     }
 
     @Override
     @Cacheable(value = "userById", key = "#id")
     public UserDto getUserById(Long id) {
-        Optional<User> user = userRepository.findById(id);
-        if (!user.isPresent())
-            throw new UserNotFoundException("User not found");
-        return userMapper.UserToUserDto(user.get());
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
+        return userMapper.UserToUserDto(user);
     }
 
     @Override
@@ -146,13 +142,11 @@ public class UserServiceImp implements UserService {
 
     @Override
     public CustomResponse resendVerificationToken(String email) {
-        Optional<User> user = userRepository.findByEmail(email);
-        if (!user.isPresent())
-            throw new UserNotFoundException("User not found");
-        if (user.get().getTokens() == UserUtils.MAX_NO_OF_TOKENS)
+        User user = userRepository.findByEmail(email).orElseThrow(() ->new UserNotFoundException("User not found"));
+        if (user.getTokens() == UserUtils.MAX_NO_OF_TOKENS)
             return new CustomResponse(UserUtils.Max_NUMBER_OF_TOKENS, "Max_NUMBER_OF_TOKENS");
         String token = UUID.randomUUID().toString();
-        saveVerificationToken(user.get(), token);
+        saveVerificationToken(user, token);
         String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/newToken?token=" + token;
         mailSenderService.sendNewMail(email, "BookStore Registration Resend Token"
@@ -171,15 +165,13 @@ public class UserServiceImp implements UserService {
         if (!changePasswordDto.getNewPassword().equals(changePasswordDto.getMatchingPassword())) {
             return new CustomResponse(UserUtils.NEW_PASSWORDS_NOT_MATCHING, "PASSWORDS_NOT_MATCHING");
         }
-        Optional<User> user = userRepository.findByEmail(changePasswordDto.getEmail());
-        if (!user.isPresent()) {
-            throw new UserNotFoundException("User not exist");
-        }
-        if (!user.get().getPassword().equals(changePasswordDto.getOldPassword())) {
+        User user = userRepository.findByEmail(changePasswordDto.getEmail()).orElseThrow(
+                () ->new UserNotFoundException("User not exist"));
+        if (!user.getPassword().equals(changePasswordDto.getOldPassword())) {
             return new CustomResponse(UserUtils.OLD_PASSWORD_NOT_MATCHING_WITH_DB, "OLD_PASSWORD_NOT_MATCHING");
         } else {
-            user.get().setPassword(changePasswordDto.getNewPassword());
-            userRepository.save(user.get());
+            user.setPassword(changePasswordDto.getNewPassword());
+            userRepository.save(user);
         }
         return new CustomResponse(0, "SUCCESSFUL");
     }
@@ -190,20 +182,19 @@ public class UserServiceImp implements UserService {
         if (requestResetPasswordDto == null
                 || requestResetPasswordDto.getEmail() == null)
             throw new NullPointerException("Reset password data can not be null");
-        Optional<User> user = userRepository.findByEmail(requestResetPasswordDto.getEmail());
-        if (!user.isPresent())
-            throw new UserNotFoundException("User not found");
-        ResetVerificationToken resetToken = resetVerificationTokenRepository.findByUserId(user.get().getId());
+        User user = userRepository.findByEmail(requestResetPasswordDto.getEmail()).orElseThrow(
+                () -> new UserNotFoundException("User not found"));
+        ResetVerificationToken resetToken = resetVerificationTokenRepository.findByUserId(user.getId());
         if (resetToken != null)
             token = resetToken.getToken();
         else {
             token = UUID.randomUUID().toString();
         }
-        saveResetVerificationToken(user.get(), token);
+        saveResetVerificationToken(user, token);
         // send email
         String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/resetPassword?token=" + token;
-        mailSenderService.sendNewMail(user.get().getEmail(), "BookStore- Token for Request Reset Password"
+        mailSenderService.sendNewMail(user.getEmail(), "BookStore- Token for Request Reset Password"
                 , " Please click on this url to reset your password : " + url);
         return new CustomResponse(UserUtils.SUCCESSFUL, "Email Sent");
     }
@@ -218,18 +209,17 @@ public class UserServiceImp implements UserService {
             throw new NullPointerException("Reset password data can not be null");
         if (!resetPasswordDto.getPassword().equals(resetPasswordDto.getMatchingPassword()))
             throw new PasswordNotMatchingException("Passwords not matched");
-        Optional<User> user = userRepository.findByEmail(resetPasswordDto.getEmail());
-        if (!user.isPresent())
-            throw new UserNotFoundException("User email not found");
-        ResetVerificationToken resetVerificationToken = resetVerificationTokenRepository.findByUserId(user.get().getId());
+        User user = userRepository.findByEmail(resetPasswordDto.getEmail()).orElseThrow(
+                ()-> new UserNotFoundException("User email not found"));
+        ResetVerificationToken resetVerificationToken = resetVerificationTokenRepository.findByUserId(user.getId());
         if (resetVerificationToken == null)
             return new CustomResponse(UserUtils.RESET_TOKEN_NOT_FOUND, "RESET_TOKEN_NOT_FOUND");
         if (!resetVerificationToken.getToken().equals(resetPasswordDto.getToken()))
             return new CustomResponse(UserUtils.RESET_TOKEN_NOT_MATCHED, "RESET_TOKEN_NOT_MATCHED");
         if (TokenExpirationTime.calculateDifferenceTime(resetVerificationToken.getExpirationTime(), LocalDateTime.now()) != 1)
             return new CustomResponse(UserUtils.RESET_TOKEN_EXPIRED, "RESET_TOKEN_EXPIRED");
-        user.get().setPassword(resetPasswordDto.getPassword());
-        userRepository.save(user.get());
+        user.setPassword(resetPasswordDto.getPassword());
+        userRepository.save(user);
         return new CustomResponse(0, "SUCCESSFUL");
     }
 }

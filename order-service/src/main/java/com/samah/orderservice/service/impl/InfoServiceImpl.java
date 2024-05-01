@@ -1,4 +1,4 @@
-package com.samah.orderservice.service;
+package com.samah.orderservice.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,7 +6,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InfoService {
+public class InfoServiceImpl {
     @Value("${spring.application.name}")
     private String applicationName;
     @Value("${spring.application.version}")

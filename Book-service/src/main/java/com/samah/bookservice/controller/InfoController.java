@@ -1,6 +1,6 @@
 package com.samah.bookservice.controller;
 
-import com.samah.bookservice.service.InfoService;
+import com.samah.bookservice.service.impl.InfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

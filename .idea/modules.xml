@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/Bookstore-mircroservices.iml" filepath="$PROJECT_DIR$/Bookstore-mircroservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/Eureka-server-bookstore/Eureka-server-bookstore.iml" filepath="$PROJECT_DIR$/Eureka-server-bookstore/Eureka-server-bookstore.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mail-service/mail-service.iml" filepath="$PROJECT_DIR$/mail-service/mail-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/order-service/order-service.iml" filepath="$PROJECT_DIR$/order-service/order-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
     </modules>

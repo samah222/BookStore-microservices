@@ -9,6 +9,8 @@ import com.samah.userservice.exception.UserNotFoundException;
 import com.samah.userservice.entity.User;
 import com.samah.userservice.mail.MailSenderService;
 import com.samah.userservice.mapper.UserMapper;
+import com.samah.userservice.payload.Mail;
+import com.samah.userservice.producer.MailProducer;
 import com.samah.userservice.repository.ChangePasswordVerificationTokenRepository;
 import com.samah.userservice.repository.ResetVerificationTokenRepository;
 import com.samah.userservice.repository.VerificationTokenRepository;
@@ -42,6 +44,8 @@ public class UserServiceImp implements UserService {
     @Autowired
     private InfoServiceImpl infoServiceImpl;
     UserMapper userMapper;
+    @Autowired
+    private MailProducer producer;
 
     @Override
     public UserDto getUserByName(String name) {
@@ -75,8 +79,11 @@ public class UserServiceImp implements UserService {
         // send email
         String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/verifyRegistration?token=" + token;
-        mailSenderService.sendNewMail(savedUser.getEmail(), "BookStore Registration Token"
-                , " Please click on this url to confirm your email : " + url);
+        //mailSenderService.sendNewMail(savedUser.getEmail(), "BookStore Registration Token"
+                //, " Please click on this url to confirm your email : " + url);
+        Mail mail = new Mail(savedUser.getEmail(),"Kafka BookStore Registration Token",
+                " Please click on this url to confirm your email : " ); //+ url
+        producer.sendMessage(mail);
         return userMapper.UserToUserDto(savedUser);
     }
 

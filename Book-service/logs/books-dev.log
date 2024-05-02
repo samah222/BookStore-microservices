@@ -1,22 +1,19 @@
-2024-04-27T17:10:32.406+04:00  INFO 6684 --- [books] [main] c.s.b.controller.InfoControllerTest      : Starting InfoControllerTest using Java 21.0.2 with PID 6684 (started by User in D:\learningSpringBoot\BookStore Microservice\Bookstore-mircroservices\Book-service)
-2024-04-27T17:10:32.416+04:00  INFO 6684 --- [books] [main] c.s.b.controller.InfoControllerTest      : The following 1 profile is active: "dev"
-2024-04-27T17:10:32.493+04:00  INFO 6684 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
-2024-04-27T17:10:32.495+04:00  INFO 6684 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[default], label=null, version=null, state=null
-2024-04-27T17:10:32.495+04:00  INFO 6684 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
-2024-04-27T17:10:32.496+04:00  INFO 6684 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[dev], label=null, version=null, state=null
-2024-04-27T17:10:32.510+04:00 DEBUG 6684 --- [books] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@ebd06a9
-2024-04-27T17:10:36.638+04:00 DEBUG 6684 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
-2024-04-27T17:10:36.886+04:00 DEBUG 6684 --- [books] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-04-27T17:10:37.267+04:00 DEBUG 6684 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-04-27T17:10:37.361+04:00 DEBUG 6684 --- [books] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-04-27T17:10:37.590+04:00  INFO 6684 --- [books] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2024-04-27T17:10:37.591+04:00  INFO 6684 --- [books] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-04-27T17:10:37.595+04:00  INFO 6684 --- [books] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2024-04-27T17:10:37.677+04:00  INFO 6684 --- [books] [main] c.s.b.controller.InfoControllerTest      : Started InfoControllerTest in 8.555 seconds (process running for 11.362)
-2024-04-27T17:10:37.838+04:00 DEBUG 6684 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.samah.bookservice.controller.InfoController#getInfo()
-2024-04-27T17:10:37.896+04:00 DEBUG 6684 --- [books] [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
-2024-04-27T17:10:37.899+04:00 DEBUG 6684 --- [books] [main] m.m.a.RequestResponseBodyMethodProcessor : Writing ["This application is books and this version: v1"]
-2024-04-27T17:10:37.976+04:00 DEBUG 6684 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.samah.bookservice.controller.InfoController#getJavaVersion()
-2024-04-27T17:10:37.979+04:00 DEBUG 6684 --- [books] [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
-2024-04-27T17:10:37.980+04:00 DEBUG 6684 --- [books] [main] m.m.a.RequestResponseBodyMethodProcessor : Writing ["java 21.0.2"]
-2024-04-27T17:10:38.007+04:00 DEBUG 6684 --- [books] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@ebd06a9, started on Sat Apr 27 17:10:32 GST 2024
+2024-05-02T21:06:58.087+04:00  INFO 20068 --- [books] [main] c.s.b.controller.InfoControllerTest      : Starting InfoControllerTest using Java 21.0.2 with PID 20068 (started by User in D:\My Github Projects\BookStore\BookStore-microservices\Book-service)
+2024-05-02T21:06:58.106+04:00  INFO 20068 --- [books] [main] c.s.b.controller.InfoControllerTest      : The following 1 profile is active: "dev"
+2024-05-02T21:06:58.131+04:00  INFO 20068 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-05-02T21:06:58.131+04:00  INFO 20068 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[default], label=null, version=null, state=null
+2024-05-02T21:06:58.131+04:00  INFO 20068 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-05-02T21:06:58.131+04:00  INFO 20068 --- [books] [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[dev], label=null, version=null, state=null
+2024-05-02T21:06:58.135+04:00 DEBUG 20068 --- [books] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@28737371
+2024-05-02T21:06:59.746+04:00 DEBUG 20068 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2024-05-02T21:06:59.853+04:00 DEBUG 20068 --- [books] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-02T21:06:59.995+04:00 DEBUG 20068 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-02T21:07:00.068+04:00 DEBUG 20068 --- [books] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-02T21:07:00.161+04:00  INFO 20068 --- [books] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-02T21:07:00.162+04:00  INFO 20068 --- [books] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-02T21:07:00.163+04:00  INFO 20068 --- [books] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-05-02T21:07:00.193+04:00  INFO 20068 --- [books] [main] c.s.b.controller.InfoControllerTest      : Started InfoControllerTest in 3.026 seconds (process running for 4.143)
+2024-05-02T21:07:00.272+04:00 DEBUG 20068 --- [books] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.samah.bookservice.controller.InfoController#getJavaVersion()
+2024-05-02T21:07:00.296+04:00 DEBUG 20068 --- [books] [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2024-05-02T21:07:00.298+04:00 DEBUG 20068 --- [books] [main] m.m.a.RequestResponseBodyMethodProcessor : Writing ["java 21.0.2"]
+2024-05-02T21:07:00.333+04:00 DEBUG 20068 --- [books] [SpringApplicationShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@28737371, started on Thu May 02 21:06:58 GST 2024

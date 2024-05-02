@@ -9,10 +9,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Book-service" />
         <module name="config-server" />
+        <module name="API-gateway" />
         <module name="user-service" />
         <module name="order-service" />
         <module name="Eureka-server-bookstore" />
-        <module name="API-gateway" />
+        <module name="mail-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="Book-service" target="19" />
       <module name="config-server" target="19" />
       <module name="Eureka-server-bookstore" target="19" />
+      <module name="mail-service" target="19" />
       <module name="order-service" target="19" />
       <module name="user-service" target="19" />
     </bytecodeTargetLevel>
@@ -30,6 +32,7 @@
       <module name="Book-service" options="-parameters" />
       <module name="Eureka-server-bookstore" options="-parameters" />
       <module name="config-server" options="-parameters" />
+      <module name="mail-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>

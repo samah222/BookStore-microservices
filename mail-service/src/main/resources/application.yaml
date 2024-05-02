@@ -1,13 +1,4 @@
 spring:
-  application:
-    name: users
-    version: v1
-
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    url: jdbc:mysql://${myapp.DB-server}:${myapp.DB-port}/${myapp.DB-name}
-    password: E15@root
   mail:
     properties:
       mail:
@@ -20,6 +11,9 @@ spring:
     host: smtp.gmail.com
     password: ejfiixnybohuuttd
     port: '587'
+  application:
+    name: mail-service
+
   kafka:
     consumer:
       bootstrap-server: localhost:9002
@@ -32,40 +26,18 @@ spring:
           json:
             trusted:
               packages: '*'
+
     producer:
       bootstrap-server: localhost:9002
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: 'false'
-
 server:
-  port: '8082'
+  port: '8085'
 
-myapp:
-  server: localhost
-  DB-server: localhost
-  DB-port: 3306
-  DB-name: users_service
-  openapi:
-    dev-url: http://${myapp.server}:${server.port}
-    qa-url: http://${myapp.server}:${server.port}
-    prod-url: http://${myapp.server}:${server.port}
-
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
-logging:
-  file:
-    name: logs/users-dev.log
-  level:
-    org:
-      springframework:
-        web: DEBUG
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka

@@ -1,6 +1,6 @@
 package com.samah.userservice.controller;
 
-import com.samah.userservice.service.InfoService;
+import com.samah.userservice.service.impl.InfoServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,7 +20,7 @@ class InfoControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
-    InfoService infoService;
+    InfoServiceImpl infoService;
 
     @Test
     void shouldReturnAppInfo() throws Exception {

@@ -26,6 +26,22 @@ spring:
     host: smtp.gmail.com
     password: ejfiixnybohuuttd
     port: '587'
+  kafka:
+    consumer:
+      bootstrap-server: localhost:9002
+      group-id: myGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+    producer:
+      bootstrap-server: localhost:9002
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 server:
   port: '8082'

@@ -8,12 +8,6 @@ BookStore-config-server
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Running the Config Server](#running-the-config-server)
-- [Configuration Management](#configuration-management)
-    - [Git Repository](#git-repository)
-    - [Configuration Files](#configuration-files)
-- [Client Services](#client-services)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 

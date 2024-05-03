@@ -7,11 +7,11 @@ BookStore microservice is a project ro manage Book store which has user manageme
 
 - [Config Server](#Config_Server)
 - [Eureka Server](#Eureka_Server)
-- [API_Gateway](#API Gateway)
+- [API_Gateway](#API_Gateway)
 - [Book Service](#Book_Service)
 - [Order Service](#Order_Service)
 - [User Service](#User_Service)
-- [Mail Server](#Mail Server)
+- [Mail Server](#Mail_Server)
 - [Technologies Used](#Technologies_Used)
 
 ### Config Server

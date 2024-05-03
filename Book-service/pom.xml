@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.samah</groupId>
 	<artifactId>Book-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>Book-service</name>
 	<description>Book service, part of Bookstore microservice project </description>
 	<properties>

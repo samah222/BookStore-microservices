@@ -34,7 +34,6 @@ public class UserController {
     public ResponseEntity<UserDto> registerUser(@Validated @RequestBody UserRegistrationDto registrationDto,
                                                 HttpServletRequest request) {
         UserDto dto = userService.addUser(registrationDto);
-        //registrationPublisher.publishEvent(new RegistrationCompleteEvent(dto, applicationUrl(request)));
         return new ResponseEntity(dto, HttpStatus.CREATED);
     }
 

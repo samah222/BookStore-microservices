@@ -3,6 +3,8 @@ package com.samah.orderservice.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
@@ -38,10 +40,13 @@ public class Order {
     //private LocalDateTime shippedDate;
     //private String comments;
     @ManyToOne
+
     private OrderStatuses status;
 //    @OneToMany
 //    private Customer customer;
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+
     private Shipper shipper;
     @ManyToOne
     private PaymentMethods paymentMethod;

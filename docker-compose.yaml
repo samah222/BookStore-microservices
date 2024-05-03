@@ -1,10 +1,21 @@
-# check network, change .env file to 3 files and update db image
 version: "3.8"
 services:
   config-server:
     image: bookstore/configserver:latest
     ports:
       - "8888:8888"
+    networks:
+      - bookstore-network
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     networks:
       - bookstore-network
 
@@ -26,22 +37,58 @@ services:
     networks:
       - bookstore-network
 
+  mail-service:
+    image: bookstore/mail-service:latest
+    ports:
+      - "8885:8885"
+    networks:
+      - bookstore-network
+    depends_on:
+      - config-server
+      - eureka-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILE_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8888/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://configserver:8090/
+
+  API-gateway:
+    image: bookstore/api-gateway:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+      - eureka-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILE_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8888/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://configserver:8090/
+    networks:
+      - bookstore-network
+
   books-service-db:
-    image: mysql:5.7
+    image: mysql:8.4
     restart: always
     env_file:
       - ./.env
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
       - '3307:3306'
     expose:
-      # Opens port 3306 on the container
       - '3306'
     volumes:
-      # Where our data will be persisted
       - ./mysql-dump:/docker-entrypoint-initdb.d
     networks:
-      # Add this container to a network to be able to communicate with its service
       - bookstore-network
   books-service:
     image: bookstore/books-service:latest
@@ -83,7 +130,7 @@ services:
     networks:
       - bookstore-network
   users-service-db:
-    image: mysql:5.7
+    image: mysql:8.4
     restart: always
     env_file:
       - ./.env
@@ -116,7 +163,7 @@ services:
     networks:
       - bookstore-network
   orders-service-db:
-    image: mysql:5.7
+    image: mysql:8.4
     restart: always
     env_file:
       - ./.env

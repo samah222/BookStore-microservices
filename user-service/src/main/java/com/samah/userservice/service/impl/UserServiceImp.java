@@ -7,10 +7,9 @@ import com.samah.userservice.entity.VerificationToken;
 import com.samah.userservice.exception.PasswordNotMatchingException;
 import com.samah.userservice.exception.UserNotFoundException;
 import com.samah.userservice.entity.User;
-import com.samah.userservice.mail.MailSenderService;
 import com.samah.userservice.mapper.UserMapper;
 import com.samah.userservice.payload.Mail;
-import com.samah.userservice.producer.MailProducer;
+import com.samah.userservice.producer.RabbitmqMailProducer;
 import com.samah.userservice.repository.ChangePasswordVerificationTokenRepository;
 import com.samah.userservice.repository.ResetVerificationTokenRepository;
 import com.samah.userservice.repository.VerificationTokenRepository;
@@ -40,12 +39,10 @@ public class UserServiceImp implements UserService {
     @Autowired
     ResetVerificationTokenRepository resetVerificationTokenRepository;
     @Autowired
-    private MailSenderService mailSenderService;
-    @Autowired
     private InfoServiceImpl infoServiceImpl;
     UserMapper userMapper;
     @Autowired
-    private MailProducer producer;
+    private RabbitmqMailProducer producer;
 
     @Override
     public UserDto getUserByName(String name) {
@@ -62,7 +59,6 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDto addUser(UserRegistrationDto registrationDto) {
-        //check fields
         if (registrationDto == null
                 || registrationDto.getName() == null
                 || registrationDto.getEmail() == null
@@ -79,11 +75,8 @@ public class UserServiceImp implements UserService {
         // send email
         String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/verifyRegistration?token=" + token;
-        //mailSenderService.sendNewMail(savedUser.getEmail(), "BookStore Registration Token"
-                //, " Please click on this url to confirm your email : " + url);
-        Mail mail = new Mail(savedUser.getEmail(),"Kafka BookStore Registration Token",
-                " Please click on this url to confirm your email : " ); //+ url
-        producer.sendMessage(mail);
+        producer.sendMessage(new Mail(savedUser.getEmail(),"BookStore Registration Token",
+                " Please click on this url to confirm your email : " + url));
         return userMapper.UserToUserDto(savedUser);
     }
 
@@ -109,7 +102,6 @@ public class UserServiceImp implements UserService {
     }
 
     public void saveVerificationTokenForUSer(UserDto dto, String token) {
-
         VerificationToken verificationToken = new VerificationToken(userMapper.UserDtoToUser(dto), token);
         verificationTokenRepository.save(verificationToken);
     }
@@ -156,8 +148,8 @@ public class UserServiceImp implements UserService {
         saveVerificationToken(user, token);
         String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/newToken?token=" + token;
-        mailSenderService.sendNewMail(email, "BookStore Registration Resend Token"
-                , " Please click on this url to confirm your email : " + url);
+        producer.sendMessage(new Mail(email,"BookStore Registration Resend Token",
+                " Please click on this url to confirm your email : " + url));
         return new CustomResponse(0, "Successful");
     }
 
@@ -201,8 +193,8 @@ public class UserServiceImp implements UserService {
         // send email
         String url = "http://" + infoServiceImpl.getMyappServer() + ":" + infoServiceImpl.getServerPort()
                 + "/v1/users/resetPassword?token=" + token;
-        mailSenderService.sendNewMail(user.getEmail(), "BookStore- Token for Request Reset Password"
-                , " Please click on this url to reset your password : " + url);
+        producer.sendMessage(new Mail(user.getEmail(), "BookStore- Token for Request Reset Password"
+                , " Please click on this url to reset your password : " + url));
         return new CustomResponse(UserUtils.SUCCESSFUL, "Email Sent");
     }
 

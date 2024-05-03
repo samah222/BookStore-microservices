@@ -1,72 +1,72 @@
-2024-05-02T21:02:32.845+04:00  INFO 24404 --- [books] [restartedMain] c.s.bookservice.BookServiceApplication   : Starting BookServiceApplication using Java 21.0.2 with PID 24404 (D:\My Github Projects\BookStore\BookStore-microservices\Book-service\target\classes started by User in D:\My Github Projects\BookStore\BookStore-microservices)
-2024-05-02T21:02:32.907+04:00  INFO 24404 --- [books] [restartedMain] c.s.bookservice.BookServiceApplication   : The following 1 profile is active: "dev"
-2024-05-02T21:02:33.072+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
-2024-05-02T21:02:33.073+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[default], label=null, version=null, state=null
-2024-05-02T21:02:33.073+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
-2024-05-02T21:02:33.075+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[dev], label=null, version=null, state=null
-2024-05-02T21:02:33.080+04:00  INFO 24404 --- [books] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-05-02T21:02:33.080+04:00  INFO 24404 --- [books] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-05-02T21:02:36.307+04:00  INFO 24404 --- [books] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-02T21:02:36.759+04:00  INFO 24404 --- [books] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 427 ms. Found 1 JPA repository interface.
-2024-05-02T21:02:37.746+04:00  INFO 24404 --- [books] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=990fa054-1d89-36fe-beb3-7e190a49b2c3
-2024-05-02T21:02:38.942+04:00  WARN 24404 --- [books] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2024-05-02T21:02:38.955+04:00  WARN 24404 --- [books] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-05-02T21:02:40.680+04:00  INFO 24404 --- [books] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-05-02T21:02:40.716+04:00  INFO 24404 --- [books] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-05-02T21:02:40.717+04:00  INFO 24404 --- [books] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-02T21:02:40.966+04:00  INFO 24404 --- [books] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-05-02T21:02:40.967+04:00  INFO 24404 --- [books] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7886 ms
-2024-05-02T21:02:41.901+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
-2024-05-02T21:02:42.347+04:00  INFO 24404 --- [books] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-02T21:02:42.517+04:00  INFO 24404 --- [books] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-02T21:02:42.614+04:00  INFO 24404 --- [books] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-05-02T21:02:43.250+04:00  INFO 24404 --- [books] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-02T21:02:43.324+04:00  INFO 24404 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-05-02T21:02:44.306+04:00  INFO 24404 --- [books] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a5a615e
-2024-05-02T21:02:44.311+04:00  INFO 24404 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-05-02T21:02:46.316+04:00  INFO 24404 --- [books] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-02T21:02:46.476+04:00  INFO 24404 --- [books] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-02T21:02:48.410+04:00  WARN 24404 --- [books] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-02T21:02:48.893+04:00 DEBUG 24404 --- [books] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
-2024-05-02T21:02:49.416+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2024-05-02T21:02:49.571+04:00 DEBUG 24404 --- [books] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-05-02T21:02:49.713+04:00 DEBUG 24404 --- [books] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-05-02T21:02:51.650+04:00  WARN 24404 --- [books] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2024-05-02T21:02:51.769+04:00  INFO 24404 --- [books] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2024-05-02T21:02:51.944+04:00  WARN 24404 --- [books] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2024-05-02T21:02:52.035+04:00  INFO 24404 --- [books] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2024-05-02T21:02:52.327+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2024-05-02T21:02:52.638+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2024-05-02T21:02:52.649+04:00  INFO 24404 --- [books] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-05-02T21:02:52.710+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2024-05-02T21:02:52.711+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2024-05-02T21:02:52.711+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2024-05-02T21:02:52.711+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2024-05-02T21:02:52.711+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2024-05-02T21:02:52.711+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2024-05-02T21:02:52.711+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2024-05-02T21:02:52.984+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/
-2024-05-02T21:02:53.080+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-05-02T21:02:53.185+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Response 200 OK
-2024-05-02T21:02:53.189+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
-2024-05-02T21:02:53.250+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2024-05-02T21:02:53.260+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2024-05-02T21:02:53.266+04:00  INFO 24404 --- [books] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2024-05-02T21:02:53.278+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1714669373278 with initial instances count: 2
-2024-05-02T21:02:53.295+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application BOOKS with eureka with status UP
-2024-05-02T21:02:53.297+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1714669373297, current=UP, previous=STARTING]
-2024-05-02T21:02:53.301+04:00  INFO 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081: registering service...
-2024-05-02T21:02:53.310+04:00 DEBUG 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/BOOKS
-2024-05-02T21:02:53.316+04:00 DEBUG 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-05-02T21:02:53.318+04:00  INFO 24404 --- [books] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application BOOKS with eureka with status DOWN
-2024-05-02T21:02:53.320+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1714669373320, current=DOWN, previous=UP]
-2024-05-02T21:02:53.321+04:00  WARN 24404 --- [books] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2024-05-02T21:02:53.341+04:00  INFO 24404 --- [books] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-02T21:02:53.349+04:00  INFO 24404 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-05-02T21:02:53.361+04:00 DEBUG 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = NCTR.mshome.net:books:8081, appName = BOOKS, hostName = localhost, status = DOWN, ipAddr = 172.22.160.1, port = 8081, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@48cc0e49] as "application/json"
-2024-05-02T21:02:53.377+04:00  INFO 24404 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-05-02T21:02:53.379+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2024-05-02T21:02:53.417+04:00  INFO 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=Connection pool shut down stacktrace=java.lang.IllegalStateException: Connection pool shut down
+2024-05-03T19:43:09.024+04:00  INFO 23044 --- [books] [restartedMain] c.s.bookservice.BookServiceApplication   : Starting BookServiceApplication using Java 21.0.2 with PID 23044 (D:\My Github Projects\BookStore\BookStore-microservices\Book-service\target\classes started by User in D:\My Github Projects\BookStore\BookStore-microservices)
+2024-05-03T19:43:09.045+04:00  INFO 23044 --- [books] [restartedMain] c.s.bookservice.BookServiceApplication   : The following 1 profile is active: "dev"
+2024-05-03T19:43:09.121+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-05-03T19:43:09.122+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[default], label=null, version=null, state=null
+2024-05-03T19:43:09.122+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-05-03T19:43:09.122+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=books, profiles=[dev], label=null, version=null, state=null
+2024-05-03T19:43:09.125+04:00  INFO 23044 --- [books] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-03T19:43:09.125+04:00  INFO 23044 --- [books] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-03T19:43:10.395+04:00  INFO 23044 --- [books] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-03T19:43:10.539+04:00  INFO 23044 --- [books] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137 ms. Found 1 JPA repository interface.
+2024-05-03T19:43:10.854+04:00  INFO 23044 --- [books] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=990fa054-1d89-36fe-beb3-7e190a49b2c3
+2024-05-03T19:43:11.234+04:00  WARN 23044 --- [books] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-05-03T19:43:11.238+04:00  WARN 23044 --- [books] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-05-03T19:43:11.916+04:00  INFO 23044 --- [books] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-05-03T19:43:11.935+04:00  INFO 23044 --- [books] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-03T19:43:11.935+04:00  INFO 23044 --- [books] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-03T19:43:12.013+04:00  INFO 23044 --- [books] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-03T19:43:12.014+04:00  INFO 23044 --- [books] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2888 ms
+2024-05-03T19:43:12.338+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-03T19:43:12.540+04:00  INFO 23044 --- [books] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-03T19:43:12.621+04:00  INFO 23044 --- [books] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-03T19:43:12.667+04:00  INFO 23044 --- [books] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-03T19:43:12.904+04:00  INFO 23044 --- [books] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-03T19:43:12.940+04:00  INFO 23044 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-03T19:43:13.356+04:00  INFO 23044 --- [books] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b3419be
+2024-05-03T19:43:13.359+04:00  INFO 23044 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-03T19:43:14.201+04:00  INFO 23044 --- [books] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-03T19:43:14.259+04:00  INFO 23044 --- [books] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-03T19:43:14.912+04:00  WARN 23044 --- [books] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-03T19:43:15.059+04:00 DEBUG 23044 --- [books] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2024-05-03T19:43:15.246+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-05-03T19:43:15.297+04:00 DEBUG 23044 --- [books] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-03T19:43:15.342+04:00 DEBUG 23044 --- [books] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-03T19:43:15.995+04:00  WARN 23044 --- [books] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-05-03T19:43:16.039+04:00  INFO 23044 --- [books] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-05-03T19:43:16.107+04:00  WARN 23044 --- [books] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-05-03T19:43:16.155+04:00  INFO 23044 --- [books] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-03T19:43:16.233+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-05-03T19:43:16.357+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-05-03T19:43:16.361+04:00  INFO 23044 --- [books] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-05-03T19:43:16.382+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-05-03T19:43:16.382+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-05-03T19:43:16.383+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-05-03T19:43:16.383+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-05-03T19:43:16.383+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-05-03T19:43:16.383+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-05-03T19:43:16.383+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-05-03T19:43:16.492+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8761/eureka/apps/
+2024-05-03T19:43:16.535+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-05-03T19:43:16.582+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Response 200 OK
+2024-05-03T19:43:16.583+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2024-05-03T19:43:16.598+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-05-03T19:43:16.600+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-05-03T19:43:16.602+04:00  INFO 23044 --- [books] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-05-03T19:43:16.606+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1714750996606 with initial instances count: 1
+2024-05-03T19:43:16.613+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application BOOKS with eureka with status UP
+2024-05-03T19:43:16.614+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1714750996614, current=UP, previous=STARTING]
+2024-05-03T19:43:16.615+04:00  INFO 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081: registering service...
+2024-05-03T19:43:16.618+04:00 DEBUG 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/BOOKS
+2024-05-03T19:43:16.620+04:00 DEBUG 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-05-03T19:43:16.623+04:00  INFO 23044 --- [books] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application BOOKS with eureka with status DOWN
+2024-05-03T19:43:16.623+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1714750996623, current=DOWN, previous=UP]
+2024-05-03T19:43:16.623+04:00  WARN 23044 --- [books] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-05-03T19:43:16.631+04:00  INFO 23044 --- [books] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-03T19:43:16.632+04:00 DEBUG 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = NCTR.mshome.net:books:8081, appName = BOOKS, hostName = localhost, status = DOWN, ipAddr = 172.22.160.1, port = 8081, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@7291b23a] as "application/json"
+2024-05-03T19:43:16.634+04:00  INFO 23044 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-03T19:43:16.647+04:00  INFO 23044 --- [books] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-03T19:43:16.648+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-05-03T19:43:16.655+04:00  INFO 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=Connection pool shut down stacktrace=java.lang.IllegalStateException: Connection pool shut down
 	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
 	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
 	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:298)
@@ -118,8 +118,8 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 
-2024-05-02T21:02:53.418+04:00  WARN 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: Connection pool shut down
-2024-05-02T21:02:53.419+04:00  WARN 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081 - registration failed Cannot execute request on any known server
+2024-05-03T19:43:16.656+04:00  WARN 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: Connection pool shut down
+2024-05-03T19:43:16.656+04:00  WARN 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081 - registration failed Cannot execute request on any known server
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -137,7 +137,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2024-05-02T21:02:53.434+04:00  WARN 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+2024-05-03T19:43:16.660+04:00  WARN 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -155,11 +155,11 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2024-05-02T21:02:53.436+04:00  INFO 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081: registering service...
-2024-05-02T21:02:53.444+04:00 DEBUG 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/BOOKS
-2024-05-02T21:02:53.445+04:00 DEBUG 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-05-02T21:02:53.456+04:00 DEBUG 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = NCTR.mshome.net:books:8081, appName = BOOKS, hostName = localhost, status = DOWN, ipAddr = 172.22.160.1, port = 8081, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@48cc0e49] as "application/json"
-2024-05-02T21:02:53.465+04:00  INFO 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=Connection pool shut down stacktrace=java.lang.IllegalStateException: Connection pool shut down
+2024-05-03T19:43:16.661+04:00  INFO 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081: registering service...
+2024-05-03T19:43:16.663+04:00 DEBUG 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : HTTP POST http://localhost:8761/eureka/apps/BOOKS
+2024-05-03T19:43:16.663+04:00 DEBUG 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-05-03T19:43:16.666+04:00 DEBUG 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = NCTR.mshome.net:books:8081, appName = BOOKS, hostName = localhost, status = DOWN, ipAddr = 172.22.160.1, port = 8081, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@7291b23a] as "application/json"
+2024-05-03T19:43:16.668+04:00  INFO 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=Connection pool shut down stacktrace=java.lang.IllegalStateException: Connection pool shut down
 	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
 	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
 	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:298)
@@ -211,8 +211,8 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 
-2024-05-02T21:02:53.465+04:00  WARN 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: Connection pool shut down
-2024-05-02T21:02:53.465+04:00  WARN 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081 - registration failed Cannot execute request on any known server
+2024-05-03T19:43:16.668+04:00  WARN 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: Connection pool shut down
+2024-05-03T19:43:16.668+04:00  WARN 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081 - registration failed Cannot execute request on any known server
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -230,7 +230,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2024-05-02T21:02:53.466+04:00  WARN 24404 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+2024-05-03T19:43:16.669+04:00  WARN 23044 --- [books] [DiscoveryClient-InstanceInfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -248,10 +248,10 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2024-05-02T21:02:53.473+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2024-05-02T21:02:53.482+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.web.client.RestTemplate              : HTTP DELETE http://localhost:8761/eureka/apps/BOOKS/NCTR.mshome.net:books:8081
-2024-05-02T21:02:53.483+04:00 DEBUG 24404 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-05-02T21:02:53.487+04:00  INFO 24404 --- [books] [restartedMain] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=Connection pool shut down stacktrace=java.lang.IllegalStateException: Connection pool shut down
+2024-05-03T19:43:16.670+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-05-03T19:43:16.673+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.web.client.RestTemplate              : HTTP DELETE http://localhost:8761/eureka/apps/BOOKS/NCTR.mshome.net:books:8081
+2024-05-03T19:43:16.673+04:00 DEBUG 23044 --- [books] [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-05-03T19:43:16.674+04:00  INFO 23044 --- [books] [restartedMain] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=Connection pool shut down stacktrace=java.lang.IllegalStateException: Connection pool shut down
 	at org.apache.hc.core5.util.Asserts.check(Asserts.java:38)
 	at org.apache.hc.core5.pool.StrictConnPool.lease(StrictConnPool.java:176)
 	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.lease(PoolingHttpClientConnectionManager.java:298)
@@ -323,8 +323,8 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
 
-2024-05-02T21:02:53.489+04:00  WARN 24404 --- [books] [restartedMain] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: Connection pool shut down
-2024-05-02T21:02:53.490+04:00 ERROR 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081 - de-registration failedCannot execute request on any known server
+2024-05-03T19:43:16.674+04:00  WARN 23044 --- [books] [restartedMain] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: Connection pool shut down
+2024-05-03T19:43:16.674+04:00 ERROR 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKS/NCTR.mshome.net:books:8081 - de-registration failedCannot execute request on any known server
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -362,11 +362,11 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.4.jar:3.2.4]
 
-2024-05-02T21:02:53.507+04:00  INFO 24404 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2024-05-02T21:02:53.569+04:00  INFO 24404 --- [books] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+2024-05-03T19:43:16.680+04:00  INFO 23044 --- [books] [restartedMain] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-05-03T19:43:16.700+04:00  INFO 23044 --- [books] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-05-02T21:02:53.603+04:00 ERROR 24404 --- [books] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2024-05-03T19:43:16.733+04:00 ERROR 23044 --- [books] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
 ***************************
 APPLICATION FAILED TO START

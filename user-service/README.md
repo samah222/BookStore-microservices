@@ -12,7 +12,8 @@
 ## Project Overview
 
 User Service is responsible for managing user accounts and authentication. Implement APIs for user registration,
-change password, password reset, and profile management.
+change password, password reset, and profile management. User Service publish all mails for RabbitMQ to register
+new user, password reset and password changes. So, the mail-service can consume the data and send it.
 
 ## Getting Started
 

@@ -13,31 +13,24 @@ spring:
     port: '587'
   application:
     name: mail-service
-
-  kafka:
-    consumer:
-      bootstrap-server: localhost:9002
-      group-id: myGroup
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring:
-          json:
-            trusted:
-              packages: '*'
-
-    producer:
-      bootstrap-server: localhost:9002
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 5672
+    username: guest
 
 server:
   port: '8085'
 
-#eureka:
-#  instance:
-#    hostname: localhost
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka
+rabbitmq:
+  json:
+    queue:
+      name: queue1_json
+  queue:
+    name: queue1
+  routingMail-key:
+    name: routing_key1_json
+  routing-key:
+    name: routing_key1
+  topic-exchange:
+    name: topicExchange1

@@ -14,6 +14,12 @@ spring:
       ddl-auto: none
     show-sql: 'false'
 
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 5672
+    username: guest
+
   mail:
     properties:
       mail:
@@ -67,3 +73,16 @@ logging:
   file:
     name: users-prod.log
     path: /var/log
+
+rabbitmq:
+  queue:
+    name: queue1
+  json:
+    queue:
+      name: queue1_json
+  routingMail-key:
+    name: routing_key1_json
+  routing-key:
+    name: routing_key1
+  topic-exchange:
+    name: topicExchange1

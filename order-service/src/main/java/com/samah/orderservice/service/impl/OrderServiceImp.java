@@ -56,6 +56,7 @@ public class OrderServiceImp implements OrderService {
 //            case REFUNDED -> processOrders.updateRefundedOrder(order);
 //            case ON_HOLD -> processOrders.updateOnHoldOrder(order);
 //            case COMPLETED -> processOrders.updateCompletedOrder(order);
+//        throw new IllegalArgumentException("Invalid order status: " + existingOrder.getStatus().getName());
 //        };
 
         return mapper.OrderToOrderDto(orderRepository.save(order));

@@ -38,17 +38,10 @@ public class UserController {
     }
 
     @Operation(summary = "Verify token", description = "Verify the token for a new registered user")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201")})
+    @ApiResponses(value = {@ApiResponse(responseCode = "200")})
     @GetMapping("/verifyRegistration")
-    public ResponseEntity<String> verifyUserRegistration(@RequestParam("token") String token) {
-        int result = userService.validateVerificationToken(token);
-        if (result == 1)
-            return new ResponseEntity<>("User validated", HttpStatus.OK);
-        else if (result == 0)
-            return new ResponseEntity<>("User token is expired", HttpStatus.OK);
-        else
-            return new ResponseEntity<>("Token is not valid", HttpStatus.OK);
+    public ResponseEntity<CustomResponse> verifyUserRegistration(@RequestParam("token") String token) {
+        return new ResponseEntity<>(userService.validateVerificationToken(token), HttpStatus.OK);
     }
 
     @Operation(summary = "Send a new token", description = "Send a new token for a new registered user, due to delay or error")
@@ -59,22 +52,13 @@ public class UserController {
         return new ResponseEntity<>(userService.resendVerificationToken(email), HttpStatus.OK);
     }
 
-    //
     @Operation(summary = "Verify new token", description = "Verify a new token after resend request")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201")})
+    @ApiResponses(value = { @ApiResponse(responseCode = "200")})
     @GetMapping("/newToken")
-    public ResponseEntity<String> verifyNewToken(@RequestParam("token") String token) {
-        int result = userService.validateVerificationToken(token);
-        if (result == 1)
-            return new ResponseEntity<>("User validated", HttpStatus.OK);
-        else if (result == 0)
-            return new ResponseEntity<>("User token is expired", HttpStatus.OK);
-        else
-            return new ResponseEntity<>("Token is not valid", HttpStatus.OK);
+    public ResponseEntity<CustomResponse> verifyNewToken(@RequestParam("token") String token) {
+        return new ResponseEntity<>(userService.validateVerificationToken(token), HttpStatus.OK); //check
     }
 
-    //change password
     @Operation(summary = "Change Password", description = "Change Password")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201")})
@@ -92,16 +76,14 @@ public class UserController {
     }
 
     @Operation(summary = " Reset Password", description = " Reset Password")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201")})
+    @ApiResponses(value = { @ApiResponse(responseCode = "201")})
     @PostMapping("/resetPassword")
     public ResponseEntity<CustomResponse> ResetPassword(@Validated @RequestBody ResetPasswordDto resetPasswordDto) {
         return new ResponseEntity<CustomResponse>(userService.resetPassword(resetPasswordDto), HttpStatus.OK);
     }
 
     @Operation(summary = "Get a user", description = "Get a user")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "successful operation")})
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "successful operation")})
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUser(@Parameter(description = "ID of user to be retrieved",
             required = true) @PathVariable Long id) {
@@ -109,8 +91,7 @@ public class UserController {
     }
 
     @Operation(summary = "Get all users", description = "Get all users")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "successful operation")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "successful operation")
     })
     @GetMapping
     public ResponseEntity<List<UserDto>> getAllUser() {
@@ -129,9 +110,7 @@ public class UserController {
     }
 
     @Operation(summary = "Edit a user", description = "Edit a user")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200")
-    })
+    @ApiResponses(value = { @ApiResponse(responseCode = "200") })
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(@Validated @RequestBody UserDto userDto,
                                               @Parameter(description = "ID of user to be updated",

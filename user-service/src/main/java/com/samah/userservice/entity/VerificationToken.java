@@ -38,5 +38,4 @@ public class VerificationToken {
         this.expirationTime = TokenExpirationTime.calculateExpirationDate();
     }
 
-
 }

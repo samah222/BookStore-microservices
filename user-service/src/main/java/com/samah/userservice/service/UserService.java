@@ -18,9 +18,7 @@ public interface UserService {
     List<UserDto> getAllUsers();
 
     UserDto updateUser(Long id, UserDto dto);
-
-    int validateVerificationToken(String token);
-
+    
     CustomResponse resendVerificationToken(String email);
 
     CustomResponse changePassword(ChangePasswordDto changePasswordDto);
@@ -28,4 +26,6 @@ public interface UserService {
     CustomResponse requestResetPassword(RequestResetPasswordDto requestResetPasswordDto);
 
     CustomResponse resetPassword(ResetPasswordDto resetPasswordDto);
+
+    CustomResponse validateVerificationToken(String token);
 }

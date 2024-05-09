@@ -3,6 +3,7 @@ package com.samah.bookservice.service.impl;
 import com.samah.bookservice.dto.BookDto;
 import com.samah.bookservice.entity.Book;
 import com.samah.bookservice.exception.BookNotFoundException;
+import com.samah.bookservice.exception.InvalidDataException;
 import com.samah.bookservice.mapper.Mapper;
 import com.samah.bookservice.repository.BookRepository;
 import com.samah.bookservice.service.BookService;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookServiceImp implements BookService {
@@ -20,15 +20,18 @@ public class BookServiceImp implements BookService {
     private Mapper mapper;
 
     public BookDto addBook(Book book) {
+        if (book == null
+                || book.getTitle() == null
+                || book.getTitle().isBlank()
+        )
+            throw new InvalidDataException("Book data can not be empty");
         Book savedBook = bookRepository.save(book);
         return mapper.BookToBookDto(savedBook);
     }
 
     public BookDto getBook(int id) {
-        Optional<Book> bookdb = bookRepository.findById(id);
-        if (bookdb.isPresent())
-            return mapper.BookToBookDto(bookdb.get());
-        else throw new BookNotFoundException("Book not found");
+        return mapper.BookToBookDto(bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found")));
     }
 
     public List<BookDto> getAllBooks() {
@@ -39,8 +42,42 @@ public class BookServiceImp implements BookService {
     public BookDto updateBook(BookDto bookDto, int id) {
         if (bookDto == null)
             throw new NullPointerException("bookDto is null");
-        Book book = mapper.BookDtoToBook(bookDto);
-        book.setId(id);
+        Book book = bookRepository.findById(bookDto.getId())
+                .orElseThrow(() -> new InvalidDataException("Book id is not valid"));
+        if (bookDto.getTitle() != null && !bookDto.getTitle().isBlank()) {
+            book.setTitle(bookDto.getTitle());
+        }
+        if (bookDto.getDescription() != null) {
+            book.setDescription(bookDto.getDescription());
+        }
+        if (bookDto.getIsbn() != null) {
+            book.setIsbn(bookDto.getIsbn());
+        }
+        if (bookDto.getGenres() != null) {
+            book.setGenres(bookDto.getGenres());
+        }
+        if (bookDto.getAuthors() != null) {
+            book.setAuthors(bookDto.getAuthors());
+        }
+        if (bookDto.getPages() > 0) {
+            book.setPages(bookDto.getPages());
+        }
+        if (bookDto.getLanguage() != null) {
+            book.setLanguage(bookDto.getLanguage());
+        }
+        if (bookDto.getPrice() != null) {
+            book.setPrice(bookDto.getPrice());
+        }
+        if (bookDto.getPublisher() != null) {
+            book.setPublisher(bookDto.getPublisher());
+        }
+        if (bookDto.getPublicationYear() > 0) {
+            book.setPublicationYear(bookDto.getPublicationYear());
+        }
+        if (bookDto.getQuantity() > 0) {
+            book.setQuantity(bookDto.getQuantity());
+        }
+
         return mapper.BookToBookDto(bookRepository.save(book));
     }
 

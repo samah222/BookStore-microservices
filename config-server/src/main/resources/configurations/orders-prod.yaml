@@ -41,3 +41,7 @@ logging:
   file:
     name: orders-prod.log
     path: /var/log
+management:
+  tracing:
+    sampling:
+      probability: 1.0

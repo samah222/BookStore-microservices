@@ -34,3 +34,8 @@ rabbitmq:
     name: routing_key1
   topic-exchange:
     name: topicExchange1
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

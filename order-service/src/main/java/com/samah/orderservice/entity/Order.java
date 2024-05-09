@@ -11,7 +11,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity(name = "orders")
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -28,21 +29,20 @@ public class Order {
     @Column(nullable = false)
     private Integer customerId;
     @CreationTimestamp
-    @Column(name="created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
     @UpdateTimestamp
-    @Column(name="updated_at", nullable = false)
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @Column(name="shipping_at", nullable = true)
+    @Column(name = "shipping_at", nullable = true)
     private LocalDateTime ShippingAt;
 
     //private LocalDateTime shippedDate;
     //private String comments;
     @ManyToOne
-
     private OrderStatuses status;
-//    @OneToMany
+    //    @OneToMany
 //    private Customer customer;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)

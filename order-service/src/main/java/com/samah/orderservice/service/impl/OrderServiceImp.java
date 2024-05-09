@@ -2,6 +2,7 @@ package com.samah.orderservice.service.impl;
 
 import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.entity.Order;
+import com.samah.orderservice.exception.InvalidDataException;
 import com.samah.orderservice.mapper.Mapper;
 import com.samah.orderservice.repository.OrderRepository;
 import com.samah.orderservice.service.OrderService;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderServiceImp implements OrderService {
@@ -20,8 +20,17 @@ public class OrderServiceImp implements OrderService {
     @Autowired
     private ProcessOrders processOrders;
 
-    public OrderDto addOrder(OrderDto Orderdto) {
-        Order order = mapper.addNewOrderDto(Orderdto);
+    public OrderDto addOrder(OrderDto orderdto) {
+        if (orderdto == null
+                || orderdto.getBookId() == null
+                || orderdto.getQuantity() == null
+                || orderdto.getCustomerId() == null)
+            throw new InvalidDataException("order data can not be empty");
+        if (orderdto.getBookId() < 0
+                || orderdto.getQuantity() < 0
+                || orderdto.getCustomerId() < 0)
+            throw new InvalidDataException("order data not valid");
+        Order order = mapper.addNewOrderDto(orderdto);
         Order savedOrder = orderRepository.save(order);
         Order newOrder = processOrders.addNewOrder(savedOrder);
         return mapper.OrderToOrderDto(newOrder);

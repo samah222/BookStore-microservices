@@ -40,3 +40,8 @@ application-config:
 logging:
   file:
     name: logs/orders-dev.log
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

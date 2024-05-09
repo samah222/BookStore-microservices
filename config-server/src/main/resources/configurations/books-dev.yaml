@@ -40,3 +40,7 @@ logging:
       springframework:
         web: DEBUG
 #    path: logs/users-service.log
+management:
+  tracing:
+    sampling:
+      probability: 1.0

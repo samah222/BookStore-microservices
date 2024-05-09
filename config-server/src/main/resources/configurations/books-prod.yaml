@@ -36,3 +36,7 @@ logging:
   file:
     name: books-prod.log
     path: /var/log
+management:
+  tracing:
+    sampling:
+      probability: 1.0

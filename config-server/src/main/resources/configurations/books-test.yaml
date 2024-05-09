@@ -35,3 +35,8 @@ eureka:
 logging:
   file:
     name: logs/books-dev.log
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

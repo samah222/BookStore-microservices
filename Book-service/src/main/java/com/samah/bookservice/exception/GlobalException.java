@@ -27,6 +27,12 @@ public class GlobalException {
         return problemDetail;
     }
 
+    @ExceptionHandler(InvalidDataException.class)
+    public ProblemDetail handleRuntimeException(InvalidDataException ex) {
+        problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
+        return problemDetail;
+    }
+
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleException(Exception ex) {
         problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());

@@ -60,4 +60,8 @@ public class ProcessOrders {
     public Order updateCompletedOrder(Order order){
         return  order;
     }
+
+    public Order updateDeliveredOrder(Order order) {
+        return  order;
+    }
 }

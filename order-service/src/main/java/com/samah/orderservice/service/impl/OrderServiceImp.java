@@ -2,6 +2,7 @@ package com.samah.orderservice.service.impl;
 
 import com.samah.orderservice.dto.OrderDto;
 import com.samah.orderservice.entity.Order;
+import com.samah.orderservice.entity.OrderStatuses;
 import com.samah.orderservice.exception.InvalidDataException;
 import com.samah.orderservice.mapper.Mapper;
 import com.samah.orderservice.repository.OrderRepository;
@@ -52,24 +53,36 @@ public class OrderServiceImp implements OrderService {
     }
 
     public OrderDto updateOrder(OrderDto orderDto, int id) {
+        // Fetch existing order from DB
+        Order existingOrder = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        // Convert DTO to entity
         Order order = mapper.OrderDtoToOrder(orderDto);
         order.setId(id);
 
-//        Order updatedOrder = switch (order.getStatus()){
-//            case PENDING -> processOrders.updatePendingOrder(order);
-//            case PROCESSING -> processOrders.updateProcessingOrder(order);
-//            case SHIPPED -> processOrders.updateShippedOrder(order);
-//            case DELIVERED -> processOrders.updateDileveredOrder(order);
-//            case CANCELED -> processOrders.updateCanceledOrder(order);
-//            case RETURNED -> processOrders.updateReturnedOrder(order);
-//            case REFUNDED -> processOrders.updateRefundedOrder(order);
-//            case ON_HOLD -> processOrders.updateOnHoldOrder(order);
-//            case COMPLETED -> processOrders.updateCompletedOrder(order);
-//        throw new IllegalArgumentException("Invalid order status: " + existingOrder.getStatus().getName());
-//        };
+        OrderStatuses status  = order.getStatus();
+        // Handle order status updates
+        Order updatedOrder = switch (status.getName()) {
+            case "PENDING" -> processOrders.updatePendingOrder(order);
+            case "PROCESSING" -> processOrders.updateProcessingOrder(order);
+            case "SHIPPED" -> processOrders.updateShippedOrder(order);
+            case "DELIVERED" -> processOrders.updateDeliveredOrder(order);
+            case "CANCELED" -> processOrders.updateCanceledOrder(order);
+            case "RETURNED" -> processOrders.updateReturnedOrder(order);
+            case "REFUNDED" -> processOrders.updateRefundedOrder(order);
+            case "ON_HOLD" -> processOrders.updateOnHoldOrder(order);
+            case "COMPLETED" -> processOrders.updateCompletedOrder(order);
+            default -> throw new IllegalArgumentException("Invalid order status: " + order.getStatus());
+        };
 
-        return mapper.OrderToOrderDto(orderRepository.save(order));
+        // Save updated order to DB
+        Order savedOrder = orderRepository.save(updatedOrder);
+
+        // Convert to DTO and return
+        return mapper.OrderToOrderDto(savedOrder);
     }
+
 
     @Override
     public OrderDto cancelOrder(OrderDto orderDto, int id) {

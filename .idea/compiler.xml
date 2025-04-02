@@ -10,8 +10,8 @@
         <module name="Book-service" />
         <module name="config-server" />
         <module name="API-gateway" />
-        <module name="user-service" />
         <module name="order-service" />
+        <module name="user-service" />
         <module name="Eureka-server-bookstore" />
         <module name="mail-service" />
       </profile>

@@ -1,0 +1,150 @@
+2025-04-04T12:13:54.208+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] c.s.apigateway.ApiGatewayApplication     : Starting ApiGatewayApplication using Java 21.0.2 with PID 22488 (D:\My Github Projects\2025\Bookstore\BookStore-microservices\API-gateway\target\classes started by User in D:\My Github Projects\2025\Bookstore\BookStore-microservices\API-gateway)
+2025-04-04T12:13:54.227+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] c.s.apigateway.ApiGatewayApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-04-04T12:13:54.342+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2025-04-04T12:13:54.343+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=API-gateway, profiles=[default], label=null, version=null, state=null
+2025-04-04T12:13:56.401+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6cd21176-e883-3e21-8899-64ef670b3650
+2025-04-04T12:13:56.539+04:00  WARN 22488 --- [API-gateway] [main] [                                                 ] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-04-04T12:13:56.545+04:00  WARN 22488 --- [API-gateway] [main] [                                                 ] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-04-04T12:13:56.552+04:00  WARN 22488 --- [API-gateway] [main] [                                                 ] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-04-04T12:13:56.556+04:00  WARN 22488 --- [API-gateway] [main] [                                                 ] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-04-04T12:13:56.560+04:00  WARN 22488 --- [API-gateway] [main] [                                                 ] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-04-04T12:13:58.197+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2025-04-04T12:13:58.198+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2025-04-04T12:13:58.198+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2025-04-04T12:13:58.199+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2025-04-04T12:13:58.199+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2025-04-04T12:13:58.200+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2025-04-04T12:13:58.200+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2025-04-04T12:13:58.200+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2025-04-04T12:13:58.201+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2025-04-04T12:13:58.201+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2025-04-04T12:13:58.202+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2025-04-04T12:13:58.203+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-04-04T12:13:58.203+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2025-04-04T12:13:58.204+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-04-04T12:13:58.816+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-04-04T12:13:59.320+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-04-04T12:13:59.359+04:00  WARN 22488 --- [API-gateway] [main] [                                                 ] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-04-04T12:13:59.437+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-04-04T12:13:59.581+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-04-04T12:13:59.597+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-04-04T12:13:59.628+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-04-04T12:13:59.629+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-04-04T12:13:59.629+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-04-04T12:13:59.630+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-04-04T12:13:59.631+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-04-04T12:13:59.632+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-04-04T12:13:59.632+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-04-04T12:14:00.309+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-04-04T12:14:00.309+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-04-04T12:14:00.309+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-04-04T12:14:00.328+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1743754440328 with initial instances count: 0
+2025-04-04T12:14:00.328+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application API-GATEWAY with eureka with status UP
+2025-04-04T12:14:00.328+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1743754440328, current=UP, previous=STARTING]
+2025-04-04T12:14:00.328+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-InstanceInfoReplicator-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/NCTR.mshome.net:API-gateway:8080: registering service...
+2025-04-04T12:14:00.579+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-InstanceInfoReplicator-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/NCTR.mshome.net:API-gateway:8080 - registration status: 204
+2025-04-04T12:14:00.738+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
+2025-04-04T12:14:00.738+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2025-04-04T12:14:00.785+04:00  INFO 22488 --- [API-gateway] [main] [                                                 ] c.s.apigateway.ApiGatewayApplication     : Started ApiGatewayApplication in 8.875 seconds (process running for 9.764)
+2025-04-04T12:14:30.316+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-04-04T12:14:30.316+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-04-04T12:14:30.316+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-04-04T12:14:30.316+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-04-04T12:14:30.321+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-04-04T12:14:30.321+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-04-04T12:14:30.321+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-04-04T12:14:30.379+04:00  INFO 22488 --- [API-gateway] [DiscoveryClient-CacheRefreshExecutor-0] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-04-04T12:15:36.922+04:00  WARN 22488 --- [API-gateway] [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@6784382b}] [                                                 ] z.r.AsyncReporter$BoundedAsyncReporter   : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-04-04T12:15:36.924+04:00  WARN 22488 --- [API-gateway] [AsyncReporter{org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender@6784382b}] [                                                 ] z.r.AsyncReporter$BoundedAsyncReporter   : Dropped 2 spans due to WebClientRequestException(Connection refused: getsockopt: localhost/127.0.0.1:9411)
+
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.5.jar:6.1.5]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136) ~[spring-webflux-6.1.5.jar:6.1.5]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4568) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311) ~[reactor-netty-http-1.1.17.jar:1.1.17]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:172) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:488) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:436) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:583) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4568) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.1.17.jar:1.1.17]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:322) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:338) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.6.4.jar:3.6.4]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.6.4.jar:3.6.4]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:76) ~[spring-boot-actuator-autoconfigure-3.2.4.jar:3.2.4]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender$WebClientHttpPostCall.doExecute(ZipkinWebClientSender.java:54) ~[spring-boot-actuator-autoconfigure-3.2.4.jar:3.2.4]
+		at zipkin2.Call$Base.execute(Call.java:391) ~[zipkin-2.23.2.jar:na]
+		at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:299) ~[zipkin-reporter-2.16.3.jar:na]
+		at zipkin2.reporter.AsyncReporter$Flusher.run(AsyncReporter.java:378) ~[zipkin-reporter-2.16.3.jar:na]
+		at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:9411
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:335) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+

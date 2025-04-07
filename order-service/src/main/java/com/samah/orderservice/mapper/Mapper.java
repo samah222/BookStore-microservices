@@ -43,8 +43,11 @@ public class Mapper {
         }
         Order order = Order.builder()
                         .bookId(orderdto.getBookId())
+                        .customerId(orderdto.getCustomerId())
                         .quantity(orderdto.getQuantity())
                         .paymentMethod(orderdto.getPaymentMethod())
+                        .shipper(orderdto.getShipper())
+                        .shippingAt(orderdto.getShippingAt())
                         .status(new OrderStatuses(1, "PENDING"))
                         .build();
         return order;

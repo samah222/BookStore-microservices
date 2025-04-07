@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "orders")
 @Getter
@@ -23,10 +24,10 @@ public class Order {
     private Integer id;
 
     @Column(nullable = false)
-    private Integer bookId;
+    private List<Integer> bookId;
     @Column(nullable = false)
-    private Integer quantity;
-    @Column(nullable = false)
+    private List<Integer> quantity;
+    //@Column(nullable = false)
     private Integer customerId;
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -35,18 +36,17 @@ public class Order {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @Column(name = "shipping_at", nullable = true)
-    private LocalDateTime ShippingAt;
+    @Column(name = "shipping_at") //nullable = true
+    private LocalDateTime shippingAt;
 
     //private LocalDateTime shippedDate;
     //private String comments;
     @ManyToOne
     private OrderStatuses status;
     //    @OneToMany
-//    private Customer customer;
+    //    private Customer customer;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-
     private Shipper shipper;
     @ManyToOne
     private PaymentMethods paymentMethod;

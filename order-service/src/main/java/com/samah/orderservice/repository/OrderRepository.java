@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-    List<Order> findByBookId(int bookId);
+    //List<Order> findByBookId(int bookId);
     List<Order> findByCustomerId(int customerId);
     List<Order> findByStatus(OrderStatus status);
 

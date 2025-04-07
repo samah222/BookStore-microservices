@@ -25,12 +25,16 @@ public class OrderServiceImp implements OrderService {
         if (orderdto == null
                 || orderdto.getBookId() == null
                 || orderdto.getQuantity() == null
-                || orderdto.getCustomerId() == null)
+                || orderdto.getCustomerId() == null
+                || orderdto.getPaymentMethod() == null
+                || orderdto.getShipper() ==null)
             throw new InvalidDataException("order data can not be empty");
-        if (orderdto.getBookId() < 0
-                || orderdto.getQuantity() < 0
-                || orderdto.getCustomerId() < 0)
+        if (orderdto.getCustomerId() < 0)
             throw new InvalidDataException("order data not valid");
+        if(orderdto.getBookId().stream().allMatch(id -> id == null || id <= 0))
+            throw new InvalidDataException("order data not valid");
+        if(orderdto.getQuantity().stream().allMatch(q -> q == null || q <= 0))
+            throw new InvalidDataException("order data not valid");;
         Order order = mapper.addNewOrderDto(orderdto);
         Order savedOrder = orderRepository.save(order);
         Order newOrder = processOrders.addNewOrder(savedOrder);
@@ -47,10 +51,10 @@ public class OrderServiceImp implements OrderService {
                 .map(o -> mapper.OrderToOrderDto(o)).toList();
     }
 
-    public List<OrderDto> getAllOrdersforBook(int bookId) {
-        return orderRepository.findByBookId(bookId).stream()
-                .map(o -> mapper.OrderToOrderDto(o)).toList();
-    }
+//    public List<OrderDto> getAllOrdersforBook(int bookId) {
+//        return orderRepository.findByBookId(bookId).stream()
+//                .map(o -> mapper.OrderToOrderDto(o)).toList();
+//    }
 
     public OrderDto updateOrder(OrderDto orderDto, int id) {
         // Fetch existing order from DB

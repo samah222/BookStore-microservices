@@ -13,7 +13,7 @@ public interface OrderService {
 
     public List<OrderDto> getAllOrders() ;
 
-    public List<OrderDto> getAllOrdersforBook(int bookId);
+    //public List<OrderDto> getAllOrdersforBook(int bookId);
 
     public OrderDto updateOrder(OrderDto order, int id) ;
 

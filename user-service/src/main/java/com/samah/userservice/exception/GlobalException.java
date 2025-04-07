@@ -55,6 +55,8 @@ public class GlobalException {
     public ProblemDetail handleException(Exception ex) {
         return ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(500), ex.getMessage());
     }
+
+
 //        public ResponseEntity<String> handleUserNotFoundException(UserNotFoundException ex) {
 //            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 //        }

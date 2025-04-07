@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,13 +18,13 @@ import java.time.LocalDateTime;
 @Builder
 public class OrderDto{
         private Integer id;
-        private Integer bookId;
+        private List<Integer> bookId;
         private Integer customerId;
-        private Integer quantity;
+        private List<Integer> quantity;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
         private BigDecimal totalAmount;
-        private LocalDateTime ShippingAt;
+        private LocalDateTime shippingAt;
         private  OrderStatuses status;
         private  Shipper shipper;
         private  PaymentMethods paymentMethod;

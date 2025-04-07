@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 //@Component
 
@@ -23,15 +25,23 @@ public class ProcessOrders {
 
     @Autowired
     BooksClient booksClient;
+
     public Order addNewOrder(Order order){
-        int bookId = order.getBookId();
-        BookDto bookDto = booksClient.getBooksDetails(bookId);
-        if(bookDto.getQuantity() - order.getQuantity() >= 0){
-            bookDto.setQuantity(bookDto.getQuantity() - order.getQuantity());
-            booksClient.updateBookQuantity(bookDto, bookDto.getId());
+        List<Integer> bookId = order.getBookId();
+        List<BookDto> bookDto = new ArrayList<BookDto>();
+        for(int i=0; i<bookId.size(); i++) {
+             bookDto.add(booksClient.getBooksDetails(bookId.get(i)));
         }
-        else {
-            throw new BookNotFoundException("Book is not available now");
+        if(bookDto == null){
+            throw new BookNotFoundException("Book is not found");
+        }
+        for(int i=0; i<bookDto.size(); i++) {
+            if (bookDto.get(i).getQuantity() - order.getQuantity().get(i)>= 0) {
+                bookDto.get(i).setQuantity(bookDto.get(i).getQuantity() - order.getQuantity().get(i));
+                booksClient.updateBookQuantity(bookDto.get(i), bookId.get(i));
+            } else {
+                throw new BookNotFoundException("Book "+bookDto.get(i).getId()+" is not available now");
+            }
         }
         // status:processing shipping [set shipper, time for shipping] -> confirm order
 

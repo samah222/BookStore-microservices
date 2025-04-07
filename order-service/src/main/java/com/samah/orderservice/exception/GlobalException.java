@@ -21,7 +21,7 @@ public class GlobalException {
 
     @ExceptionHandler(InvalidDataException.class)
     public ProblemDetail handleInvalidDataException(InvalidDataException ex) {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
         return problemDetail;
     }
 

@@ -49,6 +49,7 @@ public class Mapper {
                         .shipper(orderdto.getShipper())
                         .shippingAt(orderdto.getShippingAt())
                         .status(new OrderStatuses(1, "PENDING"))
+                        .paid(false)
                         .build();
         return order;
     }

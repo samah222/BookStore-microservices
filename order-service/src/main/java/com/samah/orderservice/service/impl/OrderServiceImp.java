@@ -36,8 +36,8 @@ public class OrderServiceImp implements OrderService {
         if(orderdto.getQuantity().stream().allMatch(q -> q == null || q <= 0))
             throw new InvalidDataException("order data not valid");;
         Order order = mapper.addNewOrderDto(orderdto);
-        Order savedOrder = orderRepository.save(order);
-        Order newOrder = processOrders.addNewOrder(savedOrder);
+        Order newOrder = processOrders.addNewOrder(order);
+        Order savedOrder = orderRepository.save(newOrder);
         return mapper.OrderToOrderDto(newOrder);
     }
 

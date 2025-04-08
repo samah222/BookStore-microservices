@@ -51,5 +51,5 @@ public class Order {
     @ManyToOne
     private PaymentMethods paymentMethod;
     private BigDecimal totalAmount;
-
+    private boolean paid;
 }

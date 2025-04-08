@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 //@Component
 
@@ -26,27 +28,56 @@ public class ProcessOrders {
     @Autowired
     BooksClient booksClient;
 
-    public Order addNewOrder(Order order){
-        List<Integer> bookId = order.getBookId();
-        List<BookDto> bookDto = new ArrayList<BookDto>();
-        for(int i=0; i<bookId.size(); i++) {
-             bookDto.add(booksClient.getBooksDetails(bookId.get(i)));
-        }
-        if(bookDto == null){
-            throw new BookNotFoundException("Book is not found");
-        }
-        for(int i=0; i<bookDto.size(); i++) {
-            if (bookDto.get(i).getQuantity() - order.getQuantity().get(i)>= 0) {
-                bookDto.get(i).setQuantity(bookDto.get(i).getQuantity() - order.getQuantity().get(i));
-                booksClient.updateBookQuantity(bookDto.get(i), bookId.get(i));
-            } else {
-                throw new BookNotFoundException("Book "+bookDto.get(i).getId()+" is not available now");
-            }
-        }
-        // status:processing shipping [set shipper, time for shipping] -> confirm order
+//    public Order addNewOrder(Order order){
+//        List<Integer> bookId = order.getBookId();
+//        List<BookDto> bookDto = new ArrayList<BookDto>();
+//        for(int i=0; i<bookId.size(); i++) {
+//             bookDto.add(booksClient.getBooksDetails(bookId.get(i)));
+//        }
+//        if(bookDto == null){
+//            throw new BookNotFoundException("Book is not found");
+//        }
+//        for(int i=0; i<bookDto.size(); i++) {
+//            if(bookDto.get(i).getQuantity() == 0)
+//                throw new BookNotFoundException("Book "+bookDto.get(i).getId()+" is not available now");
+//            if (bookDto.get(i).getQuantity() - order.getQuantity().get(i)>= 0) {
+//                System.out.println("inside if "+ (bookDto.get(i).getQuantity() - order.getQuantity().get(i)));
+//                System.out.println("bookDto.get(i).getQuantity() "+ bookDto.get(i).getQuantity());
+//                System.out.println(" order.getQuantity().get(i) " +  order.getQuantity().get(i));
+//                bookDto.get(i).setQuantity(bookDto.get(i).getQuantity() - order.getQuantity().get(i));
+//                System.out.println(bookDto.get(i).getQuantity());
+//                booksClient.updateBookQuantity(bookDto.get(i), bookId.get(i));
+//            } else {
+//                throw new BookNotFoundException("Book "+bookDto.get(i).getId()+" is not available now");
+//            }
+//        }
+//        // status:processing shipping [set shipper, time for shipping] -> confirm order
+//
+//        return order;
+//    }
 
+    public Order addNewOrder(Order order){
+        List<Integer> bookIds = order.getBookId();
+        List<Integer> quantities = order.getQuantity();
+        List<BookDto> bookDtos = bookIds.stream().map(booksClient::getBooksDetails).collect(Collectors.toList());
+        if(bookDtos == null || bookDtos.contains(null))
+            throw new BookNotFoundException("Some books are not available now");
+
+        IntStream.range(0, bookDtos.size()).forEach( i -> {
+            BookDto book = bookDtos.get(i);
+                int requestedQuantity = quantities.get(i);
+                int availableQuantity = book.getQuantity();
+                if(requestedQuantity <= availableQuantity){
+                    book.setQuantity(availableQuantity - requestedQuantity);
+                    booksClient.updateBookQuantity(book, book.getId());
+                }
+                else {
+                    throw new BookNotFoundException("Book "+book.getId()+" is not available now");
+                }
+        });
         return order;
     }
+
     public Order updatePendingOrder(Order order) {
         if (!order.getStatus().getName().equals("PENDING")) {
             throw new InvalidDataException("Order must be in PENDING state to update.");

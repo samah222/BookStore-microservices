@@ -74,7 +74,7 @@ public class BookServiceImp implements BookService {
         if (bookDto.getPublicationYear() > 0) {
             book.setPublicationYear(bookDto.getPublicationYear());
         }
-        if (bookDto.getQuantity() > 0) {
+        if (bookDto.getQuantity() >= 0) {
             book.setQuantity(bookDto.getQuantity());
         }
 

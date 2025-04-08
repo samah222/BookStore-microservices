@@ -50,6 +50,6 @@ public class Order {
     private Shipper shipper;
     @ManyToOne
     private PaymentMethods paymentMethod;
-    private BigDecimal totalAmount;
+    private double totalAmount;
     private boolean paid;
 }

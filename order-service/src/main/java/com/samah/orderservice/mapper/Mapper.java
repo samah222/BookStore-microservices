@@ -23,7 +23,7 @@ public class Mapper {
         order.setPaymentMethod(dto.getPaymentMethod());
         order.setShipper(dto.getShipper());
         order.setQuantity(dto.getQuantity());
-
+        order.setPaid(dto.isPaid());
         return order;
     }
 
@@ -33,7 +33,7 @@ public class Mapper {
         }
         OrderDto OrderDto = new OrderDto(order.getId(),order.getBookId(),order.getCustomerId(),order.getQuantity()
                 ,order.getCreatedAt(), order.getUpdatedAt(),order.getTotalAmount(),order.getShippingAt(),order.getStatus(),
-                order.getShipper(), order.getPaymentMethod());
+                order.getShipper(), order.getPaymentMethod(), order.isPaid());
         return OrderDto;
     }
 

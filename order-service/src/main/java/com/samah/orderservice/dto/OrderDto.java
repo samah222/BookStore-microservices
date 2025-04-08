@@ -23,9 +23,10 @@ public class OrderDto{
         private List<Integer> quantity;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
-        private BigDecimal totalAmount;
+        private double totalAmount;
         private LocalDateTime shippingAt;
         private  OrderStatuses status;
         private  Shipper shipper;
         private  PaymentMethods paymentMethod;
+        private boolean paid;
 }

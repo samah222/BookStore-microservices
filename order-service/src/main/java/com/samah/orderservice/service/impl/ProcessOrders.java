@@ -75,6 +75,15 @@ public class ProcessOrders {
                     throw new BookNotFoundException("Book "+book.getId()+" is not available now");
                 }
         });
+//        double total = 0;
+//        for(int i=0; i<bookDtos.size(); i++){
+//            total += bookDtos.get(i).getPrice() * quantities.get(i);
+//
+//        }
+        double total = IntStream.range(0, bookDtos.size())
+                .mapToDouble(i -> bookDtos.get(i).getPrice() * quantities.get(i))
+                .sum();
+        order.setTotalAmount(total);
         return order;
     }
 

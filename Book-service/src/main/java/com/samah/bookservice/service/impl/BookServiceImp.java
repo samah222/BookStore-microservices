@@ -65,9 +65,9 @@ public class BookServiceImp implements BookService {
         if (bookDto.getLanguage() != null) {
             book.setLanguage(bookDto.getLanguage());
         }
-        if (bookDto.getPrice() != null) {
-            book.setPrice(bookDto.getPrice());
-        }
+//        if (bookDto.getPrice() != null) {
+//            book.setPrice(bookDto.getPrice());
+//        }
         if (bookDto.getPublisher() != null) {
             book.setPublisher(bookDto.getPublisher());
         }

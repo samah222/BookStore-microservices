@@ -11,7 +11,7 @@ public class GlobalException {
 
     @ExceptionHandler(BookNotFoundException.class)
     public ProblemDetail handleBookNotFoundException(BookNotFoundException ex) {
-        problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(404), ex.getMessage());
+        problemDetail = ProblemDetail.forStatusAndDetail(HttpStatusCode.valueOf(400), ex.getMessage());
         return problemDetail;
     }
 

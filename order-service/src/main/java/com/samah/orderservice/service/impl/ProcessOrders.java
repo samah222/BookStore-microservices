@@ -80,8 +80,14 @@ public class ProcessOrders {
 //            total += bookDtos.get(i).getPrice() * quantities.get(i);
 //
 //        }
+        double discount;
+        if(order.getDiscount()<=-1) {
+             discount = 1;
+        } else {
+            discount = order.getDiscount();
+        }
         double total = IntStream.range(0, bookDtos.size())
-                .mapToDouble(i -> bookDtos.get(i).getPrice() * quantities.get(i))
+                .mapToDouble(i -> bookDtos.get(i).getPrice() * quantities.get(i) - bookDtos.get(i).getPrice() * quantities.get(i) * discount)
                 .sum();
         order.setTotalAmount(total);
         return order;

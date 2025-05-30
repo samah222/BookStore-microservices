@@ -37,9 +37,7 @@ public class OrderServiceImp implements OrderService {
             throw new InvalidDataException("order data not valid");
         if(orderdto.getDiscount()<=-1)
             throw new InvalidDataException("order data not valid");
-        else {
-            orderdto.setTotalAmount(processOrders.computeDiscount(orderdto.getTotalAmount(), orderdto.getDiscount()));
-        }
+
         Order order = mapper.addNewOrderDto(orderdto);
         if(orderdto.isPaid()){
             order.setPaid(true);

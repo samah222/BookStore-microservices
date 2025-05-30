@@ -23,7 +23,7 @@ public class Book {
     private List<String> authors;
     private String isbn;
     private List<String> genres;
-    private BigDecimal price;
+    private double price;
     private int quantity;
     private int publicationYear;
     private String publisher;

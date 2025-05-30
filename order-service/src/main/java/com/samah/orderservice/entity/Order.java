@@ -52,4 +52,6 @@ public class Order {
     private PaymentMethods paymentMethod;
     private double totalAmount;
     private boolean paid;
+
+    private double discount;
 }

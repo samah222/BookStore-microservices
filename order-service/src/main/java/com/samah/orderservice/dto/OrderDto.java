@@ -29,4 +29,5 @@ public class OrderDto{
         private  Shipper shipper;
         private  PaymentMethods paymentMethod;
         private boolean paid;
+        private double discount;
 }

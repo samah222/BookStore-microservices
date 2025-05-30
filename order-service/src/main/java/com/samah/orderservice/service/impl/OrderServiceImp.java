@@ -27,14 +27,19 @@ public class OrderServiceImp implements OrderService {
                 || orderdto.getQuantity() == null
                 || orderdto.getCustomerId() == null
                 || orderdto.getPaymentMethod() == null
-                || orderdto.getShipper() ==null)
+                || orderdto.getShipper() == null)
             throw new InvalidDataException("order data can not be empty");
         if (orderdto.getCustomerId() < 0)
             throw new InvalidDataException("order data not valid");
         if(orderdto.getBookId().stream().allMatch(id -> id == null || id <= 0))
             throw new InvalidDataException("order data not valid");
         if(orderdto.getQuantity().stream().allMatch(q -> q == null || q <= 0))
-            throw new InvalidDataException("order data not valid");;
+            throw new InvalidDataException("order data not valid");
+        if(orderdto.getDiscount()<=-1)
+            throw new InvalidDataException("order data not valid");
+        else {
+            orderdto.setTotalAmount(processOrders.computeDiscount(orderdto.getTotalAmount(), orderdto.getDiscount()));
+        }
         Order order = mapper.addNewOrderDto(orderdto);
         if(orderdto.isPaid()){
             order.setPaid(true);

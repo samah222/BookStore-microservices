@@ -33,7 +33,7 @@ public class Mapper {
         }
         OrderDto OrderDto = new OrderDto(order.getId(),order.getBookId(),order.getCustomerId(),order.getQuantity()
                 ,order.getCreatedAt(), order.getUpdatedAt(),order.getTotalAmount(),order.getShippingAt(),order.getStatus(),
-                order.getShipper(), order.getPaymentMethod(), order.isPaid());
+                order.getShipper(), order.getPaymentMethod(), order.isPaid(), order.getDiscount());
         return OrderDto;
     }
 
@@ -41,6 +41,7 @@ public class Mapper {
         if(orderdto == null){
             throw new NullPointerException("The Order DTO should not be null");
         }
+
         Order order = Order.builder()
                         .bookId(orderdto.getBookId())
                         .customerId(orderdto.getCustomerId())
@@ -50,6 +51,7 @@ public class Mapper {
                         .shippingAt(orderdto.getShippingAt())
                         .status(new OrderStatuses(1, "PENDING"))
                         .paid(false)
+                        .discount(orderdto.getDiscount())
                         .build();
         return order;
     }

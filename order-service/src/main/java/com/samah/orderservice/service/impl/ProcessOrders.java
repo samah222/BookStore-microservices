@@ -188,7 +188,15 @@ public class ProcessOrders {
         order.setUpdatedAt(LocalDateTime.now());
         return order;
     }
+
+    public double computeDiscount(double price, double discount){
+        if(discount<0)
+            discount = 0;
+        return price - price*discount;
+    }
 }
+
+
 
 
 /*
